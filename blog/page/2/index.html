@@ -1,0 +1,921 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Philippe Creux Weblog</title>
+  <meta name="author" content="Philippe Creux">
+
+  
+  <meta name="description" content="I learned to use VIM at the university to administrate linux systems and to develop C++ apps. Then I moved to Java and I enjoyed using an IDE like &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://pcreux.com/blog/page/2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Philippe Creux Weblog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Philippe Creux Weblog</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:pcreux.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/11/16/back-to-vim-for-ruby-and-rails/">Back to VIM for Ruby and Rails</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-16T09:43:18-08:00" pubdate data-updated="true">Nov 16<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I learned to use VIM at the university to administrate linux systems and to develop C++ apps. Then I moved to Java and I enjoyed using an IDE like Netbeans. When I started to play with Ruby and Rails I kept using Netbeans as my editor of choice as it plays <a href="http://netbeans.org/features/ruby/index.html">very well with them</a>.</p>
+
+<p>As I was bored with &ldquo;Up arrow key, End key, Enter key&rdquo; instead of &ldquo;O&rdquo; to insert a new line above my cursor and I wanted to play again with this so old but still alive editor, I installed the plugins: <a href="http://www.vim.org/scripts/script.php?script_id=1567">rails.vim</a> (just great), <a href="http://www.vim.org/scripts/script.php?script_id=1773">haml syntax highlight</a> (I ♡ haml) and <a href="http://blog.infinitered.com/entries/show/8">irblack color scheme</a> (more Textmate like).</p>
+
+<p>With rails.vim, you get just great shortcuts to browse your rails source file. Type <code>:Rmodel your_model_name</code> to edit your model source file — <code>:Rcontroller</code>, <code>:Rview</code>, <code>:Rmigration</code>, <code>:Rjavascript</code>, <code>:Rstylesheet</code>&hellip; work too! It also includes <code>:A</code> (jump to alternate file) and <code>:R</code> (jump to relative file) commands. <code>:A</code> switches between source code and corresponding spec file, <code>:R</code> jumps from model to migration file. The most amazing combo: <code>:AV</code> to open up the alternative file (your spec file usually) in a vertical split window.</p>
+
+<p>I finish up with the two commands I learned to use and love.1) Type <code>ma</code> to &ldquo;mark&rdquo; your cursor position as &lsquo;a&rsquo; then type <code>'a</code> to get back to this position. 2) Use <code>qa</code> to record a macro in &lsquo;a&rsquo;, press q again to stop recording. Then @a to replay it. Using commands to jump to next word / end of line / next something character it can be much faster than making a substitution using regexp or so.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/11/12/how-to-make-front-mic-working-on-ubuntu-9-10-dell-laptop-intel-hda-soundcard/">How-to Make the Front Mic Working on Ubuntu 9.10 (Dell Laptop: Intel Hda Soundcard)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-12T06:42:48-08:00" pubdate data-updated="true">Nov 12<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Ubuntu 9.10 comes with alsa 1.0.20 allowing the front mic to work on a Dell XPS M1530. From the Sound Preferences, select Microphone 2 then fire up a terminal, launch <code>alsamixer -V capture</code> and set the following options and enjoy!</p>
+
+<p><img src="/images/wp-import/Screenshot-AlsaMixer.png" alt="Screenshot-AlsaMixer" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/10/28/ruby-1-9-faster-than-ruby-1-8/">Ruby 1.9 Faster Than Ruby 1.8?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-10-28T04:17:42-07:00" pubdate data-updated="true">Oct 28<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today I ran the following script with Ruby 1.8 &amp; Ruby 1.9 to compare their performances:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">bench</span>
+</span><span class='line'>  <span class="n">start</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span>
+</span><span class='line'>  <span class="mi">1000000</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+</span><span class='line'>    <span class="k">yield</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">start</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Test 1: do things&quot;</span>
+</span><span class='line'><span class="n">bench</span> <span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;yeho!12&quot;</span><span class="o">.</span><span class="n">next</span>
+</span><span class='line'>  <span class="nb">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">i</span> <span class="o">||=</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Test 2: </span><span class="se">\&quot;</span><span class="s2">stuff</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="n">bench</span> <span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;stuff&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Test 3: &#39;stuff&#39;&quot;</span>
+</span><span class='line'><span class="n">bench</span> <span class="p">{</span>
+</span><span class='line'>  <span class="s1">&#39;stuff&#39;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Test 4: :stuff&quot;</span>
+</span><span class='line'><span class="n">bench</span> <span class="p">{</span>
+</span><span class='line'>  <span class="ss">:stuff</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ruby 1.9 performances are promising:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Test
+      <th>Ruby 1.8 (sec)
+      <th>Ruby 1.9 (sec)
+      <th>Perf Increase
+<tbody>
+  <tr>
+    <th>Test 1: do things
+    <td>1.76
+    <td>0.54
+    <td>324.40%
+  <tr>
+    <th>Test 2: &#8220;stuff&#8221;
+    <td>0.76
+    <td>0.21
+    <td>364.53%
+
+  <tr>
+    <th>Test 3: &#8216;stuff&#8217;
+    <td>0.80
+    <td>0.21
+    <td>388.91%
+
+  <tr>
+    <th>Test 4: :stuff
+    <td>0.70
+    <td>0.13
+    <td>525.98%
+</table>
+
+
+<p>So Ruby 1.9 is 3 to 5 times faster than Ruby 1.8 to run simple operations. I then checked with a small Rails app.</p>
+
+<p>Once I got rubygem installed for Ruby 1.9, the gems I needed installed for Ruby 1.9, the plug-ins I use patched for Ruby 1.9, and my ruby code patched for Ruby 1.9, <em>– yes, it was painful! –</em> I fired: <code>time spec spec</code></p>
+
+<p><strong>Ruby 1.8</strong></p>
+
+<pre><code>$&gt; time spec spec
+............................................
+
+Finished in 0.594813 seconds
+
+44 examples, 0 failures
+spec spec  2.49s user 0.79s system 93% cpu 3.522 total
+</code></pre>
+
+<p><strong>Ruby 1.9</strong></p>
+
+<pre><code>$&gt; time spec spec
+............................................
+
+Finished in 0.625589223 seconds
+
+44 examples, 0 failures
+spec spec  8.74s user 0.32s system 93% cpu 9.648 total
+</code></pre>
+
+<p>Grrrr. Ruby 1.8 &amp; 1.9 both pass the specs in ~0.60 second but Ruby 1.9 takes 8.74 seconds in total vs 2.49 seconds for Ruby 1.8. The same behavior occurs when running a Webrick server via <code>script/server</code>: Ruby 1.9 is 2 times slower than Ruby 1.8 to boot up the server and it handles the requests just as fast as Ruby 1.8.</p>
+
+<p>Any Ruby guru to explain such deceiving results?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/09/18/how-to-fix-low-volume-on-ubuntu-dell-laptop-intel-hda-soundcard/">How-to Fix Low Volume on Ubuntu (Dell Laptop: Intel Hda Soundcard)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-18T08:30:56-07:00" pubdate data-updated="true">Sep 18<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It took me a while to find a way to fix it as all the alsa-mixers where set at 100%.</p>
+
+<p>The solution: run <code>alsamixer -D hw:0</code> to display a new mixer called &ldquo;Front&rdquo; set at 70% by default &ndash; shift it to 100% and you can now listen to music or watch a film at a comfortable level!</p>
+
+<p>Ps: If anyone knows how to increase the internal mic input volume and/or make the front mic work on an Dell XPS M1530: I&rsquo;m definitely interested!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/09/08/new-rails-plugin-to-find-unused-translations/">New Rails Plugin to Find Unused Translations</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-08T05:35:30-07:00" pubdate data-updated="true">Sep 8<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A small while ago, I released with <a href="http://twitter.com/lboix">@lboix</a> a simple rails plug-in that displays translations stored in your locale file but not called from your source code. It is called <a href="http://github.com/o2sources/unused_translations/tree/master">unused_translations</a> and it is <a href="http://github.com/o2sources/unused_translations/tree/master">available on GitHub</a>. I hope you&rsquo;ll enjoy it!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/07/29/make-acts_as_versioned-create-new-version-on-demand/">Make Acts_as_versioned Create New Version on Demand</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-29T16:46:00-07:00" pubdate data-updated="true">Jul 29<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I use <a href="http://github.com/technoweenie/acts_as_versioned/tree/master">acts_as_versioned</a> to manage versions of Rails models. As I don&rsquo;t want to create a new version of my document everytime I save it (to fix a typo for instance), I added a virtual attribute called <code>save_with_revision</code> to my model and put it into the definition of <code>version_condition_met?</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="kp">attr_accessor</span> <span class="ss">:save_with_revision</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">version_condition_met?</span>
+</span><span class='line'>  <span class="vi">@save_with_revision</span><span class="o">.</span><span class="n">to_s</span><span class="o">[</span><span class="sr">/true|1/</span><span class="o">]</span> <span class="o">!=</span> <span class="kp">nil</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Cool&hellip; except that it does not save intermediate updates into the <code>**_versions</code> table. Let say you create document version 1.0, then update it without creating a new version (from <code>v1.1</code> to <code>v1.4</code>) and finally save a new version (<code>v2.0</code>); <code>v1</code> will still be <code>v1.0</code> and not <code>v1.4</code>.</p>
+
+<p>To save intermediate updates into the <code>**_versions</code> table, just add to your model:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">after_update</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">!</span><span class="n">version_condition_met?</span> <span class="o">&amp;&amp;</span> <span class="n">changed?</span>
+</span><span class='line'>    <span class="n">versions</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="ss">:last</span><span class="p">)</span><span class="o">.</span><span class="n">update_attributes</span><span class="p">(</span><span class="nb">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Hope it helps. :)</p>
+
+<p>Anyone with a better solution?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/07/23/file-versioning-in-ruby-on-rails-with-paperclip-acts_as_versioned/">File Versioning in Ruby on Rails With Paperclip & Acts_as_versioned</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-23T12:50:11-07:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This short tutorial shows you how to manage file versioning in Ruby on Rails by making <a href="http://thoughtbot.com/projects/paperclip">Paperclip</a> falling in love with <a href="http://github.com/technoweenie/acts_as_versioned/tree/master">acts_as_versioned</a>. Paperclip &amp; acts_as_versioned are plug-ins for Ruby on Rails: Paperclip manages file upload, acts_as_versioned enables models versioning.</p>
+
+<h2>Patch Paperclip</h2>
+
+<p>I patched Paperclip to keep old files when a new revision is saved. A fork of Paperclip adding the option <code>keep_old_files</code> to make Paperclip working with acts_as_versioned is available here: <a href="http://github.com/pcreux/paperclip/tree/master">http://github.com/pcreux/paperclip/tree/master</a>. You can install it running:</p>
+
+<pre><code>script/plugin install pcreux_paperclip
+</code></pre>
+
+<h2>Update your Paperclip + acts_as_versioned model</h2>
+
+<p>Just three things to do:</p>
+
+<ol>
+<li>update the url &amp; path to store your files by &lsquo;version&rsquo;</li>
+<li>set the option <code>keep_old_files</code> to <code>true</code> when a new version get saved</li>
+<li>add the interpolation of <code>:version</code></li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Document</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">has_attached_file</span> <span class="ss">:attachment</span><span class="p">,</span>
+</span><span class='line'>                    <span class="ss">:url</span> <span class="o">=&gt;</span> <span class="s2">&quot;/system/attachments/:id/:version/:style/:basename.:extension&quot;</span><span class="p">,</span>
+</span><span class='line'>                    <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s2">&quot;:rails_root/public/system/attachments/:id/:version/:style/:basename.:extension&quot;</span><span class="p">,</span>
+</span><span class='line'>                    <span class="ss">:keep_old_files</span> <span class="o">=&gt;</span> <span class="ss">:version_condition_met?</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">acts_as_versioned</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="no">Paperclip</span><span class="o">.</span><span class="n">interpolates</span> <span class="ss">:version</span> <span class="k">do</span> <span class="o">|</span><span class="n">attachement</span><span class="p">,</span> <span class="n">style</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">attachement</span><span class="o">.</span><span class="n">instance</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">to_s</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I hope it helps. :)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/07/22/behavior-driven-development-in-a-nutshell/">Behavior Driven Development in a Nutshell</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-22T16:42:21-07:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A good development practice is to use automated tests to ensure the application works well and to facilitate refactoring. It is even better to write these unit tests before writing the code: this practice is called <a href="http://en.wikipedia.org/wiki/Test-driven_development">Test Driven Development</a> (TDD) and it is a great way to check that the code <em>is</em> what it is excepted to <em>be</em>. <a href="http://en.wikipedia.org/wiki/Behavior_driven_development">Behavior Driven Development</a> (BDD) goes a step further as you write <em>specifications</em> describing what the code <em>does</em>.</p>
+
+<p>Behavior Driven Development is more about interactions with the application than just unit testing. It forces the developer to understand the responsibility of the method he is about to write. Using good tools, the specs written to test the application can be used as specifications.</p>
+
+<h2>Ruby BDD frameworks</h2>
+
+<p><a href="http://rspec.info/">RSpec</a> is famous ruby BDD framework that plays with contexts and assertions. It is mainly used to describe the behavior of application code in specific contexts.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">Calculator</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">context</span> <span class="s2">&quot;switched on&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">before</span><span class="p">(</span><span class="ss">:all</span><span class="p">)</span> <span class="k">do</span>
+</span><span class='line'>      <span class="vi">@calc</span> <span class="o">=</span> <span class="no">Calculator</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">switch_on!</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">it</span> <span class="s2">&quot;should have a result equal to 0&quot;</span> <span class="k">do</span>
+</span><span class='line'>      <span class="vi">@calc</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">should</span> <span class="n">equal</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>These specifications are a good documentation for developers as they focus on the application code. Since BDD encourages collaboration between developers &amp; non-technical participants, we need a tool describing the application at a higher level: <a href="http://cukes.info/">Cucumber</a>, to the rescue!</p>
+
+<p><a href="http://cukes.info/">Cucumber</a> permits to describe how the application should behave via user stories written down in a business-readable language. A scenario looks like that:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='cucumber'><span class='line'><span class="k">Given </span><span class="nf">I am on the messages page</span>
+</span><span class='line'><span class="k">When </span><span class="nf">I fill in &quot;</span><span class="s">Content</span><span class="nf">&quot; with &quot;</span><span class="s">Hello</span><span class="nf">&quot;</span>
+</span><span class='line'><span class="k">And </span><span class="nf">I press &quot;</span><span class="s">Send</span><span class="nf">&quot;</span>
+</span><span class='line'><span class="k">Then </span><span class="nf">I should see &quot;</span><span class="s">Message sent!</span><span class="nf">&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>These plain-text scenarios can be shared between developers and non-technical participants to validate the application behavior. Each step of this scenario is defined in Ruby to permits to run the scenario against the application and to generate a detailed development-status report.</p>
+
+<h2>BDD process</h2>
+
+<p>The focus of BDD is the language and interactions used in the process of software development. It implies outside-in development starting with User Interface definition to code development. Therefor, you create scenarios for the features you would like to develop and then follow the BDD process:</p>
+
+<p><img src="/images/wp-import/bdd.png" alt="BDD process schema" /></p>
+
+<ol>
+<li>for each scenario describing a feature</li>
+<li>run the scenario – it fails (go red)</li>
+<li>define the first step – go red</li>
+<li>write down the application code getting the step to pass – go green</li>
+<li>refactor the code and repeat steps 4 &amp; 5 for each step until&hellip;</li>
+<li>the scenario passes – go green</li>
+<li>refactor the application code</li>
+</ol>
+
+
+<p>Once your done, you can move on to the next feature. :)</p>
+
+<p>These scenarios drive the developer into the development process. It forces him to focus on writing down the test or application code to get the current step to pass, before moving on to the next step.  The developer is also gratified every time a step passes and he knows with precision which features work.</p>
+
+<p>I use Behavior Driven Development to develop Ruby on Rails applications. I work with non-technical participants on Cucumber scenario and I can give easily generate a project development status that shows working / pending / not-working scenarios. When switching to &ldquo;development mode&rdquo;, I just focus on getting the next step to pass – my mind is free of thoughts concerning the feature definition &amp; application requirements. I usually get a step to pass in a couple of minute and everytime it occurs, it am gratified of seeing it going green. Finally, the refactor process occuring everytime a step or a scenario pass, the application design is constantly evolving to fit just the requirements: that is <em>emergent design</em>.</p>
+
+<p>Many developers I talked with say that it is hard to write tests before writing the code. I think it is just hard to switch to this method. Try it and the coding process will look easier and your code will get better – just because you will specify before coding instead of doing both at the same time.
+  <em>[BDD]: Behavior Driven Development
+  </em>[TDD]: Test Driven Development</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/07/16/rubular-e28094-regular-expressions-editing-testing-made-easy/">Rubular — Regular Expressions Editing & Testing Made Easy</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-16T00:50:28-07:00" pubdate data-updated="true">Jul 16<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you use to spend ages building and testing regular expressions, you might be interested in the online expression editor <a href="http://rubular.com">Rubular</a>. Rubular is a handy way to test ruby-based regular expressions as you write them.</p>
+
+<p><img src="/images/wp-import/rubular.png" alt="rubular" /></p>
+
+<p>Since the regular expression flavor used in Ruby is &ldquo;Perl Style&rdquo;, you can use this tool to test regular expressions written for PHP (preg function), Python, Javascript etc. Enjoy!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/07/10/agile-development-in-a-nutshell/">Agile Development in a Nutshell</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-10T18:44:57-07:00" pubdate data-updated="true">Jul 10<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/images/wp-import/screenshot1.png" alt="Waterfall project Cartoon - Generated from http://www.projectcartoon.com/" /></p>
+
+<p>Funny isn&rsquo;t it? But that is the way it goes in many companies developing software – especially in big companies and on big projects. This is the old school &ndash; but widely used &ndash; <a href="http://en.wikipedia.org/wiki/Waterfall_model">waterfall model</a>. This software development process goes through the phases of Requirements, Design, Development, Testing &amp; Maintenance one after the other. It relies on the dream that once a step is 100% complete, it is also 100% right and it drives us to the delivery of a working software even the one the customer wants. But it doesn&rsquo;t go that way in the software industry: customers don&rsquo;t know what they need and use to ask many useless features, project leaders don&rsquo;t succeed to write down the perfect requirements, analysts spend ages building up software architectures writing down pages of diagrams &ndash; software is definitely one of the most complex artifact humans can build up &ndash; and developers are human too, so they make mistakes too.</p>
+
+<p>The waterfall model is inspired by the industries, therefor by highly structured physical environments in which after-the-fact changes are prohibitively costly. We&rsquo;re writing software and software are virtuals, right? So, you can change the whole architecture without any additional cost &ndash; except the time you spend updating the code. Enlarging an array is not as costly as enlarging a kitchen. Why do we use this development model then? Maybe because it is straightforward to build software like we would build an aircraft – or because people did not read correctly <a href="http://www.cs.umd.edu/class/spring2003/cmsc838p/Process/waterfall.pdf">the article</a> Winston W. Royce wrote in 1970 where it presents this model and said that it &ldquo;is risky and invites failure&rdquo;. :)</p>
+
+<h2>The solution: Agile methods!</h2>
+
+<p>It is easy and cheap to update software code. At least easier and cheaper than moving the kitchen upstairs. Therefor you can easily <em>try &amp; see</em>. <em>Try</em> to implement a new feature and <em>see</em> if it 1) does work 2) is usefull. The rule of <a href="http://en.wikipedia.org/wiki/Pareto_principle">80/20</a> applies very well in the software industry – for instance 80% of users use less than 20% of a software features. Since <em>try &amp; see</em> looks like random programming I gonna present you some aspects of Agile development.</p>
+
+<p>Many Agile development methods exist and they all follow the <a href="http://agilemanifesto.org/principles.html">twelve principles</a> of the <a href="http://en.wikipedia.org/wiki/Agile_Manifesto">Agile Manifesto</a>. The four main values are:</p>
+
+<ul>
+<li><p><strong>Individuals and interactions</strong> over processes and tools</p></li>
+<li><p><strong>Working software</strong> over comprehensive documentation</p></li>
+<li><p><strong>Customer collaboration</strong> over contract negotiation</p></li>
+<li><p><strong>Responding to change</strong> over following a plan</p></li>
+</ul>
+
+
+<p>Interactions, collaboration, embrace change&hellip; looks great isn&#8217;it?! But it&rsquo;s easier to promote cool values than to follow them – and even harder to end up on a working software that suits user needs. To make it working, you have to follow an Agile method and work with people who want to follow it too.</p>
+
+<h2>Scrum — Get Agile!</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/Scrum_(development">Scrum</a>) is an Agile development methods. It has been designed for management of software development projects but can be usedas a general project management approach.</p>
+
+<h3>Roles</h3>
+
+<p>Scrum defines three main roles in a <em>Scrum team</em>:</p>
+
+<ul>
+<li><p>the <em>Scrum Master</em>, it maintains the process</p></li>
+<li><p>the <em>Product Owner</em>, usually the customer ‑ it sets the directions of the software</p></li>
+<li><p>the <em>Team</em>, it designs, develops, tests &amp; deploys the software. The team is self-managed.</p></li>
+</ul>
+
+
+<h3>Scrum init</h3>
+
+<p>The scrum process is initialized with the creation of the <em>product backlog</em>. The product backlog can be seen as a wish list containing all the features the software should have. The Scrum team (including the Scrum master &amp; the Product owner) is involved in the creation of the product backlog. The Product backlog is then reviewed and the features it contains are prioritized.</p>
+
+<h3>Three&hellip; Two&hellip; One&hellip; Ignition!</h3>
+
+<p>Once the product backlog is ready, the project is launched. The software development will be managed via small iterations from one to four weeks. At the end of each iteration, a new release of the software featuring new or updated features is deployed.</p>
+
+<p>The following schema shows the iterative process:</p>
+
+<p><img src="/images/wp-import/Scrum_process.png" alt="Scrum_process" /></p>
+
+<p>Each iterations (also called &ldquo;sprint&rdquo;) starts with the creation of a <em>sprint backlog</em>. The sprint backlog contains features coming from the product backlog which will be developed during the iteration. Everyday, a project status meeting called the Scrum occurs. The meeting is time-boxed to 15 minutes and everybody answers the three questions:</p>
+
+<ul>
+<li><p>What have you done since yesterday?</p></li>
+<li><p>What are you planning to do today?</p></li>
+<li><p>Do you have any problem preventing you from accomplishing your goal?</p></li>
+</ul>
+
+
+<p>At the end of each iteration, a new release of the software is deployed. The Product owner reviews this new release in order to validate it and to decide what the team has to developed or to refactor next.</p>
+
+<p>The Scrum method does not describe the way developers code &amp; test the application within a sprint allowing you to choose a method that suits your needs. The one I use is <a href="http://en.wikipedia.org/wiki/Behaviour_driven_development">Behaviour Driven Development</a>: it works as a charm with Scrum and it will be the topic of a future post.</p>
+
+<p>I am Scrum master on a project involving four developers for the web agency <a href="http://blog.o2sources.com">O2Sources</a>. We follow the Scrum method but we do not use every concepts and tools it offers like <a href="http://en.wikipedia.org/wiki/Scrum_(development">BurnDown chart</a>#Burn_down) or <a href="http://en.wikipedia.org/wiki/Scrum_(development">Pig &amp; Chicken roles</a>#Roles). I didn&rsquo;t talk about them in this post to keep it short and because I wanted to talk about concepts I know, I use and which works. Don&rsquo;t hesitate to discover them by yourself – the <a href="http://en.wikipedia.org/wiki/Scrum_(development">wikipedia page of Scrum</a>) could be a good start.</p>
+
+<p>The project I am working on for <a href="http://blog.o2sources.com">O2Sources</a> is called <em>Townce</em>. It is a Collaborative Working Web Application coded in <a href="http://rubyonrails.org/">Ruby on Rails</a>. We follow the principles of Scrum &amp;  Behavior Driven Development methods to manage its development. Thanks to the Agile method Scrum, we deploy new releases every one to two weeks. Every release is reviewed to adjust the design in oder to make it more intuitive, to develop only essential features and to refactor the code. To see our baby evolve one week after the other could not be possible without the use of great methods and tools like Scrum, Behavior Driven Development, Ruby on Rails, <a href="http://cukes.info/">Cucumber</a>, <a href="http://rspec.info/">RSpec</a>&hellip; but these are other topics.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2011/03/18/disable-enable-nagios-notifications-via-command-line-curl/">Disable / Enable Nagios notifications from command line</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/09/06/my-cucumber-best-practices-and-tips/">(My) Cucumber best practices and tips</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/08/31/get-integrity-to-play-well-with-rails-3-and-bundler-1-0/">Get Integrity to play well with Rails 3 and Bundler 1.0</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/05/26/speed-up-your-specs-with-set/">Speed up RSpec with set()</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/05/19/get-back-scriptrunner-in-rails-3-x/">Get script/runner back in Rails 3</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/pcreux">@pcreux</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pcreux',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>On Delicious</h1>
+  <div id="delicious"></div>
+  <script type="text/javascript" src="http://feeds.delicious.com/v2/json/pcreux?count=3&amp;sort=date&amp;callback=renderDeliciousLinks"></script>
+  <p><a href="http://delicious.com/pcreux">My Delicious Bookmarks &raquo;</a></p>
+</section>
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Philippe Creux -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'pcreux';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

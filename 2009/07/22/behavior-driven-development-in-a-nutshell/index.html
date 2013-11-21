@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Behavior Driven Development in a nutshell - Philippe Creux Weblog</title>
+  <meta name="author" content="Philippe Creux">
+
+  
+  <meta name="description" content="A good development practice is to use automated tests to ensure the application works well and to facilitate refactoring. It is even better to write &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://pcreux.com/2009/07/22/behavior-driven-development-in-a-nutshell">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Philippe Creux Weblog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Philippe Creux Weblog</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:pcreux.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Behavior Driven Development in a Nutshell</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-22T16:42:21-07:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>A good development practice is to use automated tests to ensure the application works well and to facilitate refactoring. It is even better to write these unit tests before writing the code: this practice is called <a href="http://en.wikipedia.org/wiki/Test-driven_development">Test Driven Development</a> (TDD) and it is a great way to check that the code <em>is</em> what it is excepted to <em>be</em>. <a href="http://en.wikipedia.org/wiki/Behavior_driven_development">Behavior Driven Development</a> (BDD) goes a step further as you write <em>specifications</em> describing what the code <em>does</em>.</p>
+
+<p>Behavior Driven Development is more about interactions with the application than just unit testing. It forces the developer to understand the responsibility of the method he is about to write. Using good tools, the specs written to test the application can be used as specifications.</p>
+
+<h2>Ruby BDD frameworks</h2>
+
+<p><a href="http://rspec.info/">RSpec</a> is famous ruby BDD framework that plays with contexts and assertions. It is mainly used to describe the behavior of application code in specific contexts.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">Calculator</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">context</span> <span class="s2">&quot;switched on&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">before</span><span class="p">(</span><span class="ss">:all</span><span class="p">)</span> <span class="k">do</span>
+</span><span class='line'>      <span class="vi">@calc</span> <span class="o">=</span> <span class="no">Calculator</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">switch_on!</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">it</span> <span class="s2">&quot;should have a result equal to 0&quot;</span> <span class="k">do</span>
+</span><span class='line'>      <span class="vi">@calc</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">should</span> <span class="n">equal</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>These specifications are a good documentation for developers as they focus on the application code. Since BDD encourages collaboration between developers &amp; non-technical participants, we need a tool describing the application at a higher level: <a href="http://cukes.info/">Cucumber</a>, to the rescue!</p>
+
+<p><a href="http://cukes.info/">Cucumber</a> permits to describe how the application should behave via user stories written down in a business-readable language. A scenario looks like that:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='cucumber'><span class='line'><span class="k">Given </span><span class="nf">I am on the messages page</span>
+</span><span class='line'><span class="k">When </span><span class="nf">I fill in &quot;</span><span class="s">Content</span><span class="nf">&quot; with &quot;</span><span class="s">Hello</span><span class="nf">&quot;</span>
+</span><span class='line'><span class="k">And </span><span class="nf">I press &quot;</span><span class="s">Send</span><span class="nf">&quot;</span>
+</span><span class='line'><span class="k">Then </span><span class="nf">I should see &quot;</span><span class="s">Message sent!</span><span class="nf">&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>These plain-text scenarios can be shared between developers and non-technical participants to validate the application behavior. Each step of this scenario is defined in Ruby to permits to run the scenario against the application and to generate a detailed development-status report.</p>
+
+<h2>BDD process</h2>
+
+<p>The focus of BDD is the language and interactions used in the process of software development. It implies outside-in development starting with User Interface definition to code development. Therefor, you create scenarios for the features you would like to develop and then follow the BDD process:</p>
+
+<p><img src="/images/wp-import/bdd.png" alt="BDD process schema" /></p>
+
+<ol>
+<li>for each scenario describing a feature</li>
+<li>run the scenario – it fails (go red)</li>
+<li>define the first step – go red</li>
+<li>write down the application code getting the step to pass – go green</li>
+<li>refactor the code and repeat steps 4 &amp; 5 for each step until&hellip;</li>
+<li>the scenario passes – go green</li>
+<li>refactor the application code</li>
+</ol>
+
+
+<p>Once your done, you can move on to the next feature. :)</p>
+
+<p>These scenarios drive the developer into the development process. It forces him to focus on writing down the test or application code to get the current step to pass, before moving on to the next step.  The developer is also gratified every time a step passes and he knows with precision which features work.</p>
+
+<p>I use Behavior Driven Development to develop Ruby on Rails applications. I work with non-technical participants on Cucumber scenario and I can give easily generate a project development status that shows working / pending / not-working scenarios. When switching to &ldquo;development mode&rdquo;, I just focus on getting the next step to pass – my mind is free of thoughts concerning the feature definition &amp; application requirements. I usually get a step to pass in a couple of minute and everytime it occurs, it am gratified of seeing it going green. Finally, the refactor process occuring everytime a step or a scenario pass, the application design is constantly evolving to fit just the requirements: that is <em>emergent design</em>.</p>
+
+<p>Many developers I talked with say that it is hard to write tests before writing the code. I think it is just hard to switch to this method. Try it and the coding process will look easier and your code will get better – just because you will specify before coding instead of doing both at the same time.
+  <em>[BDD]: Behavior Driven Development
+  </em>[TDD]: Test Driven Development</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">pcreux</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-22T16:42:21-07:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/agile/'>Agile</a>, <a class='category' href='/blog/categories/bdd/'>BDD</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://pcreux.com/2009/07/22/behavior-driven-development-in-a-nutshell/" data-via="pcreux" data-counturl="http://pcreux.com/2009/07/22/behavior-driven-development-in-a-nutshell/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2009/07/16/rubular-e28094-regular-expressions-editing-testing-made-easy/" title="Previous Post: Rubular — Regular expressions editing & testing made easy">&laquo; Rubular — Regular expressions editing & testing made easy</a>
+      
+      
+        <a class="basic-alignment right" href="/2009/07/23/file-versioning-in-ruby-on-rails-with-paperclip-acts_as_versioned/" title="Next Post: File versioning in Ruby on Rails with Paperclip & acts_as_versioned">File versioning in Ruby on Rails with Paperclip & acts_as_versioned &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2011/03/18/disable-enable-nagios-notifications-via-command-line-curl/">Disable / Enable Nagios notifications from command line</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/09/06/my-cucumber-best-practices-and-tips/">(My) Cucumber best practices and tips</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/08/31/get-integrity-to-play-well-with-rails-3-and-bundler-1-0/">Get Integrity to play well with Rails 3 and Bundler 1.0</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/05/26/speed-up-your-specs-with-set/">Speed up RSpec with set()</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/05/19/get-back-scriptrunner-in-rails-3-x/">Get script/runner back in Rails 3</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/pcreux">@pcreux</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pcreux',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>On Delicious</h1>
+  <div id="delicious"></div>
+  <script type="text/javascript" src="http://feeds.delicious.com/v2/json/pcreux?count=3&amp;sort=date&amp;callback=renderDeliciousLinks"></script>
+  <p><a href="http://delicious.com/pcreux">My Delicious Bookmarks &raquo;</a></p>
+</section>
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Philippe Creux -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'pcreux';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://pcreux.com/2009/07/22/behavior-driven-development-in-a-nutshell/';
+        var disqus_url = 'http://pcreux.com/2009/07/22/behavior-driven-development-in-a-nutshell/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: DevOps | Philippe Creux Weblog]]></title>
+  <link href="http://pcreux.com/blog/categories/devops/atom.xml" rel="self"/>
+  <link href="http://pcreux.com/"/>
+  <updated>2013-11-20T16:27:30-08:00</updated>
+  <id>http://pcreux.com/</id>
+  <author>
+    <name><![CDATA[Philippe Creux]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Disable / Enable Nagios notifications from command line]]></title>
+    <link href="http://pcreux.com/2011/03/18/disable-enable-nagios-notifications-via-command-line-curl/"/>
+    <updated>2011-03-18T15:55:30-07:00</updated>
+    <id>http://pcreux.com/2011/03/18/disable-enable-nagios-notifications-via-command-line-curl</id>
+    <content type="html"><![CDATA[<p>Your a lazy devops, you want to deploy your application in one click BUT you don&rsquo;t want Nagios to send alerts while you&rsquo;re deploying. Solution: disable Nagios notifications while deploying.</p>
+
+<p>Disable Nagios Notifications:
+<code>
+curl -d "cmd_mod=2&amp;cmd;_typ=11" "http://NAGIOS_HOST/cgi-bin/nagios3/cmd.cgi" -u "USERNAME:PASSWORD"
+</code></p>
+
+<p>Re-Enable Nagios Notifications:
+<code>
+curl -d "cmd_mod=2&amp;cmd;_typ=12" "http://NAGIOS_HOST/cgi-bin/nagios3/cmd.cgi" -u "USERNAME:PASSWORD"
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

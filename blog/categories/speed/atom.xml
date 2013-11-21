@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Speed | Philippe Creux Weblog]]></title>
+  <link href="http://pcreux.com/blog/categories/speed/atom.xml" rel="self"/>
+  <link href="http://pcreux.com/"/>
+  <updated>2013-11-20T16:27:30-08:00</updated>
+  <id>http://pcreux.com/</id>
+  <author>
+    <name><![CDATA[Philippe Creux]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Speed up RSpec with set()]]></title>
+    <link href="http://pcreux.com/2010/05/26/speed-up-your-specs-with-set/"/>
+    <updated>2010-05-26T00:33:45-07:00</updated>
+    <id>http://pcreux.com/2010/05/26/speed-up-your-specs-with-set</id>
+    <content type="html"><![CDATA[<p>I enjoy using the <code>let()</code> method as it makes my specs easier to read and maintain than setting up instance variables in <code>before(:each)</code> blocks. The <code>let()</code> method can be used like this:</p>
+
+<p>```ruby
+describe Account do
+  let(:account) { Factory(:account) }</p>
+
+<p>  subject { account }</p>
+
+<p>  it { should be_enabled }</p>
+
+<p>  context &ldquo;when #disable!&rdquo; do</p>
+
+<pre><code>before do
+  account.disable!
+end
+
+it { should be_disabled }
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>My main concern was that the block gets evaluated everytime the method is called. In the example above, <code>Factory(:account)</code> will run and create a new record for every single spec.</p>
+
+<p>To increase our specs performances let&rsquo;s refactor this and setup the <em>account</em> in a <code>before(:all)</code> block.</p>
+
+<p>```ruby
+describe Account do
+  before(:all) do</p>
+
+<pre><code>@account = Factory(:account)
+</code></pre>
+
+<p>  end</p>
+
+<p>  let(:account) { @account.reload }
+  #&hellip;
+end
+```</p>
+
+<p>The <em>account</em> is now setup once before the specs get run. Each spec will be run in a separate transaction to prevent side effects. The <em>account</em> will be rolled back to its initial state before each spec then. Since ActiveRecord is not aware of the rollback we reload the <em>account</em> object from the database every time it&rsquo;s called.</p>
+
+<p>Specs are now faster but I want them to be as pretty as they were. Let&rsquo;s make a little helper called <code>set()</code>.</p>
+
+<p>Sweeeet! You can now write the following:</p>
+
+<p>```ruby
+describe Account do
+  set(:account) { Factory(:account) }</p>
+
+<p>  #&hellip;
+end
+```</p>
+
+<p>The records created by <code>set()</code> will remain in your database. You can use <a href="http://github.com/bmabey/database_cleaner">DatabaseCleaner</a> with the <code>:truncation</code> strategy to clean up your database. So far in RSpec 2.0, <code>before(:all)</code> runs before all <em>describe/context/it</em> while <code>after(:all)</code> runs after every single <em>describe/context/it</em>. Just make sure that you call <code>DatabaseCleaner.clean</code> in a <code>before(:all)</code> or <code>after(:suite)</code> blocks then. :)</p>
+
+<p>I hope you&rsquo;ll enjoy using this little helper. It&rsquo;s very young and it has been tested with RSpec 2 only, so fill free to fill up the comments with enhancements and bug reports!</p>
+
+<p><strong>rspec-set is now available <a href="https://github.com/pcreux/rspec-set">as a gem</a></strong></p>
+]]></content>
+  </entry>
+  
+</feed>

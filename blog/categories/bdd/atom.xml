@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: BDD | Philippe Creux Weblog]]></title>
+  <link href="http://pcreux.com/blog/categories/bdd/atom.xml" rel="self"/>
+  <link href="http://pcreux.com/"/>
+  <updated>2013-11-20T16:27:30-08:00</updated>
+  <id>http://pcreux.com/</id>
+  <author>
+    <name><![CDATA[Philippe Creux]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Behavior Driven Development in a nutshell]]></title>
+    <link href="http://pcreux.com/2009/07/22/behavior-driven-development-in-a-nutshell/"/>
+    <updated>2009-07-22T16:42:21-07:00</updated>
+    <id>http://pcreux.com/2009/07/22/behavior-driven-development-in-a-nutshell</id>
+    <content type="html"><![CDATA[<p>A good development practice is to use automated tests to ensure the application works well and to facilitate refactoring. It is even better to write these unit tests before writing the code: this practice is called <a href="http://en.wikipedia.org/wiki/Test-driven_development">Test Driven Development</a> (TDD) and it is a great way to check that the code <em>is</em> what it is excepted to <em>be</em>. <a href="http://en.wikipedia.org/wiki/Behavior_driven_development">Behavior Driven Development</a> (BDD) goes a step further as you write <em>specifications</em> describing what the code <em>does</em>.</p>
+
+<p>Behavior Driven Development is more about interactions with the application than just unit testing. It forces the developer to understand the responsibility of the method he is about to write. Using good tools, the specs written to test the application can be used as specifications.</p>
+
+<h2>Ruby BDD frameworks</h2>
+
+<p><a href="http://rspec.info/">RSpec</a> is famous ruby BDD framework that plays with contexts and assertions. It is mainly used to describe the behavior of application code in specific contexts.</p>
+
+<p>```ruby
+describe Calculator do
+  context &ldquo;switched on&rdquo; do</p>
+
+<pre><code>before(:all) do
+  @calc = Calculator.new.switch_on!
+end
+
+it "should have a result equal to 0" do
+  @calc.result.should equal(0)
+end
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>These specifications are a good documentation for developers as they focus on the application code. Since BDD encourages collaboration between developers &amp; non-technical participants, we need a tool describing the application at a higher level: <a href="http://cukes.info/">Cucumber</a>, to the rescue!</p>
+
+<p><a href="http://cukes.info/">Cucumber</a> permits to describe how the application should behave via user stories written down in a business-readable language. A scenario looks like that:</p>
+
+<p><code>cucumber
+Given I am on the messages page
+When I fill in "Content" with "Hello"
+And I press "Send"
+Then I should see "Message sent!"
+</code></p>
+
+<p>These plain-text scenarios can be shared between developers and non-technical participants to validate the application behavior. Each step of this scenario is defined in Ruby to permits to run the scenario against the application and to generate a detailed development-status report.</p>
+
+<h2>BDD process</h2>
+
+<p>The focus of BDD is the language and interactions used in the process of software development. It implies outside-in development starting with User Interface definition to code development. Therefor, you create scenarios for the features you would like to develop and then follow the BDD process:</p>
+
+<p><img src="/images/wp-import/bdd.png" alt="BDD process schema" /></p>
+
+<ol>
+<li>for each scenario describing a feature</li>
+<li>run the scenario – it fails (go red)</li>
+<li>define the first step – go red</li>
+<li>write down the application code getting the step to pass – go green</li>
+<li>refactor the code and repeat steps 4 &amp; 5 for each step until&hellip;</li>
+<li>the scenario passes – go green</li>
+<li>refactor the application code</li>
+</ol>
+
+
+<p>Once your done, you can move on to the next feature. :)</p>
+
+<p>These scenarios drive the developer into the development process. It forces him to focus on writing down the test or application code to get the current step to pass, before moving on to the next step.  The developer is also gratified every time a step passes and he knows with precision which features work.</p>
+
+<p>I use Behavior Driven Development to develop Ruby on Rails applications. I work with non-technical participants on Cucumber scenario and I can give easily generate a project development status that shows working / pending / not-working scenarios. When switching to &ldquo;development mode&rdquo;, I just focus on getting the next step to pass – my mind is free of thoughts concerning the feature definition &amp; application requirements. I usually get a step to pass in a couple of minute and everytime it occurs, it am gratified of seeing it going green. Finally, the refactor process occuring everytime a step or a scenario pass, the application design is constantly evolving to fit just the requirements: that is <em>emergent design</em>.</p>
+
+<p>Many developers I talked with say that it is hard to write tests before writing the code. I think it is just hard to switch to this method. Try it and the coding process will look easier and your code will get better – just because you will specify before coding instead of doing both at the same time.
+  <em>[BDD]: Behavior Driven Development
+  </em>[TDD]: Test Driven Development</p>
+]]></content>
+  </entry>
+  
+</feed>

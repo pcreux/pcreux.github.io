@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Project | Philippe Creux Weblog]]></title>
+  <link href="http://pcreux.com/blog/categories/project/atom.xml" rel="self"/>
+  <link href="http://pcreux.com/"/>
+  <updated>2013-11-20T16:27:30-08:00</updated>
+  <id>http://pcreux.com/</id>
+  <author>
+    <name><![CDATA[Philippe Creux]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Jabber-SH — SH console via XMPP/Jabber (GTalk)]]></title>
+    <link href="http://pcreux.com/2009/12/16/jabber-sh-e28094-sh-console-via-xmppjabber-gtalk/"/>
+    <updated>2009-12-16T22:44:01-08:00</updated>
+    <id>http://pcreux.com/2009/12/16/jabber-sh-e28094-sh-console-via-xmppjabber-gtalk</id>
+    <content type="html"><![CDATA[<p><img src="/images/wp-import/Screenshot-Jabber-SSH.png" alt="Screenshot-Jabber-SH on GTalk" /></p>
+
+<p>I&rsquo;ve just posted the <a href="http://gist.github.com/258561">code of Jabber-SH</a> on GitHub. Jabber-SH is a ruby hack that allows you to administrate a remote computer via a command line through a Jabber client. It’s like SSH via GoogleTalk! :)</p>
+
+<p>I coded it nine month ago then I planned to add some specs, to store the configuration in a yaml file, to make a gem out of it but&hellip; I didn&rsquo;t and I won&rsquo;t get a chance to do that. So <a href="http://gist.github.com/258561">here are</a> the 25 lines of code&hellip; hackish eh?!</p>
+]]></content>
+  </entry>
+  
+</feed>

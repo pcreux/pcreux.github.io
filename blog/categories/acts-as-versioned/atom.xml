@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: acts_as_versioned | Philippe Creux Weblog]]></title>
+  <link href="http://pcreux.com/blog/categories/acts-as-versioned/atom.xml" rel="self"/>
+  <link href="http://pcreux.com/"/>
+  <updated>2013-11-20T16:27:30-08:00</updated>
+  <id>http://pcreux.com/</id>
+  <author>
+    <name><![CDATA[Philippe Creux]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Make acts_as_versioned create new version on demand]]></title>
+    <link href="http://pcreux.com/2009/07/29/make-acts_as_versioned-create-new-version-on-demand/"/>
+    <updated>2009-07-29T16:46:00-07:00</updated>
+    <id>http://pcreux.com/2009/07/29/make-acts_as_versioned-create-new-version-on-demand</id>
+    <content type="html"><![CDATA[<p>I use <a href="http://github.com/technoweenie/acts_as_versioned/tree/master">acts_as_versioned</a> to manage versions of Rails models. As I don&rsquo;t want to create a new version of my document everytime I save it (to fix a typo for instance), I added a virtual attribute called <code>save_with_revision</code> to my model and put it into the definition of <code>version_condition_met?</code>.</p>
+
+<p>```ruby
+attr_accessor :save_with_revision</p>
+
+<p>def version_condition_met?
+  @save_with_revision.to_s[/true|1/] != nil
+end
+```</p>
+
+<p>Cool&hellip; except that it does not save intermediate updates into the <code>**_versions</code> table. Let say you create document version 1.0, then update it without creating a new version (from <code>v1.1</code> to <code>v1.4</code>) and finally save a new version (<code>v2.0</code>); <code>v1</code> will still be <code>v1.0</code> and not <code>v1.4</code>.</p>
+
+<p>To save intermediate updates into the <code>**_versions</code> table, just add to your model:</p>
+
+<p>```ruby
+def after_update
+  if !version_condition_met? &amp;&amp; changed?</p>
+
+<pre><code>versions.find(:last).update_attributes(self.attributes)
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>Hope it helps. :)</p>
+
+<p>Anyone with a better solution?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[File versioning in Ruby on Rails with Paperclip & acts_as_versioned]]></title>
+    <link href="http://pcreux.com/2009/07/23/file-versioning-in-ruby-on-rails-with-paperclip-acts_as_versioned/"/>
+    <updated>2009-07-23T12:50:11-07:00</updated>
+    <id>http://pcreux.com/2009/07/23/file-versioning-in-ruby-on-rails-with-paperclip-acts_as_versioned</id>
+    <content type="html"><![CDATA[<p>This short tutorial shows you how to manage file versioning in Ruby on Rails by making <a href="http://thoughtbot.com/projects/paperclip">Paperclip</a> falling in love with <a href="http://github.com/technoweenie/acts_as_versioned/tree/master">acts_as_versioned</a>. Paperclip &amp; acts_as_versioned are plug-ins for Ruby on Rails: Paperclip manages file upload, acts_as_versioned enables models versioning.</p>
+
+<h2>Patch Paperclip</h2>
+
+<p>I patched Paperclip to keep old files when a new revision is saved. A fork of Paperclip adding the option <code>keep_old_files</code> to make Paperclip working with acts_as_versioned is available here: <a href="http://github.com/pcreux/paperclip/tree/master">http://github.com/pcreux/paperclip/tree/master</a>. You can install it running:</p>
+
+<pre><code>script/plugin install pcreux_paperclip
+</code></pre>
+
+<h2>Update your Paperclip + acts_as_versioned model</h2>
+
+<p>Just three things to do:</p>
+
+<ol>
+<li>update the url &amp; path to store your files by &lsquo;version&rsquo;</li>
+<li>set the option <code>keep_old_files</code> to <code>true</code> when a new version get saved</li>
+<li>add the interpolation of <code>:version</code></li>
+</ol>
+
+
+<p>```ruby
+class Document &lt; ActiveRecord::Base
+  has_attached_file :attachment,</p>
+
+<pre><code>                :url =&gt; "/system/attachments/:id/:version/:style/:basename.:extension",
+                :path =&gt; ":rails_root/public/system/attachments/:id/:version/:style/:basename.:extension",
+                :keep_old_files =&gt; :version_condition_met?
+</code></pre>
+
+<p>  acts_as_versioned</p>
+
+<p>  Paperclip.interpolates :version do |attachement, style|</p>
+
+<pre><code>attachement.instance.version.to_s
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>I hope it helps. :)</p>
+]]></content>
+  </entry>
+  
+</feed>

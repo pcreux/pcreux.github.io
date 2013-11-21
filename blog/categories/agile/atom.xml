@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Agile | Philippe Creux Weblog]]></title>
+  <link href="http://pcreux.com/blog/categories/agile/atom.xml" rel="self"/>
+  <link href="http://pcreux.com/"/>
+  <updated>2013-11-20T16:27:30-08:00</updated>
+  <id>http://pcreux.com/</id>
+  <author>
+    <name><![CDATA[Philippe Creux]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Behavior Driven Development in a nutshell]]></title>
+    <link href="http://pcreux.com/2009/07/22/behavior-driven-development-in-a-nutshell/"/>
+    <updated>2009-07-22T16:42:21-07:00</updated>
+    <id>http://pcreux.com/2009/07/22/behavior-driven-development-in-a-nutshell</id>
+    <content type="html"><![CDATA[<p>A good development practice is to use automated tests to ensure the application works well and to facilitate refactoring. It is even better to write these unit tests before writing the code: this practice is called <a href="http://en.wikipedia.org/wiki/Test-driven_development">Test Driven Development</a> (TDD) and it is a great way to check that the code <em>is</em> what it is excepted to <em>be</em>. <a href="http://en.wikipedia.org/wiki/Behavior_driven_development">Behavior Driven Development</a> (BDD) goes a step further as you write <em>specifications</em> describing what the code <em>does</em>.</p>
+
+<p>Behavior Driven Development is more about interactions with the application than just unit testing. It forces the developer to understand the responsibility of the method he is about to write. Using good tools, the specs written to test the application can be used as specifications.</p>
+
+<h2>Ruby BDD frameworks</h2>
+
+<p><a href="http://rspec.info/">RSpec</a> is famous ruby BDD framework that plays with contexts and assertions. It is mainly used to describe the behavior of application code in specific contexts.</p>
+
+<p>```ruby
+describe Calculator do
+  context &ldquo;switched on&rdquo; do</p>
+
+<pre><code>before(:all) do
+  @calc = Calculator.new.switch_on!
+end
+
+it "should have a result equal to 0" do
+  @calc.result.should equal(0)
+end
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>These specifications are a good documentation for developers as they focus on the application code. Since BDD encourages collaboration between developers &amp; non-technical participants, we need a tool describing the application at a higher level: <a href="http://cukes.info/">Cucumber</a>, to the rescue!</p>
+
+<p><a href="http://cukes.info/">Cucumber</a> permits to describe how the application should behave via user stories written down in a business-readable language. A scenario looks like that:</p>
+
+<p><code>cucumber
+Given I am on the messages page
+When I fill in "Content" with "Hello"
+And I press "Send"
+Then I should see "Message sent!"
+</code></p>
+
+<p>These plain-text scenarios can be shared between developers and non-technical participants to validate the application behavior. Each step of this scenario is defined in Ruby to permits to run the scenario against the application and to generate a detailed development-status report.</p>
+
+<h2>BDD process</h2>
+
+<p>The focus of BDD is the language and interactions used in the process of software development. It implies outside-in development starting with User Interface definition to code development. Therefor, you create scenarios for the features you would like to develop and then follow the BDD process:</p>
+
+<p><img src="/images/wp-import/bdd.png" alt="BDD process schema" /></p>
+
+<ol>
+<li>for each scenario describing a feature</li>
+<li>run the scenario – it fails (go red)</li>
+<li>define the first step – go red</li>
+<li>write down the application code getting the step to pass – go green</li>
+<li>refactor the code and repeat steps 4 &amp; 5 for each step until&hellip;</li>
+<li>the scenario passes – go green</li>
+<li>refactor the application code</li>
+</ol>
+
+
+<p>Once your done, you can move on to the next feature. :)</p>
+
+<p>These scenarios drive the developer into the development process. It forces him to focus on writing down the test or application code to get the current step to pass, before moving on to the next step.  The developer is also gratified every time a step passes and he knows with precision which features work.</p>
+
+<p>I use Behavior Driven Development to develop Ruby on Rails applications. I work with non-technical participants on Cucumber scenario and I can give easily generate a project development status that shows working / pending / not-working scenarios. When switching to &ldquo;development mode&rdquo;, I just focus on getting the next step to pass – my mind is free of thoughts concerning the feature definition &amp; application requirements. I usually get a step to pass in a couple of minute and everytime it occurs, it am gratified of seeing it going green. Finally, the refactor process occuring everytime a step or a scenario pass, the application design is constantly evolving to fit just the requirements: that is <em>emergent design</em>.</p>
+
+<p>Many developers I talked with say that it is hard to write tests before writing the code. I think it is just hard to switch to this method. Try it and the coding process will look easier and your code will get better – just because you will specify before coding instead of doing both at the same time.
+  <em>[BDD]: Behavior Driven Development
+  </em>[TDD]: Test Driven Development</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Agile Development in a Nutshell]]></title>
+    <link href="http://pcreux.com/2009/07/10/agile-development-in-a-nutshell/"/>
+    <updated>2009-07-10T18:44:57-07:00</updated>
+    <id>http://pcreux.com/2009/07/10/agile-development-in-a-nutshell</id>
+    <content type="html"><![CDATA[<p><img src="/images/wp-import/screenshot1.png" alt="Waterfall project Cartoon - Generated from http://www.projectcartoon.com/" /></p>
+
+<p>Funny isn&rsquo;t it? But that is the way it goes in many companies developing software – especially in big companies and on big projects. This is the old school &ndash; but widely used &ndash; <a href="http://en.wikipedia.org/wiki/Waterfall_model">waterfall model</a>. This software development process goes through the phases of Requirements, Design, Development, Testing &amp; Maintenance one after the other. It relies on the dream that once a step is 100% complete, it is also 100% right and it drives us to the delivery of a working software even the one the customer wants. But it doesn&rsquo;t go that way in the software industry: customers don&rsquo;t know what they need and use to ask many useless features, project leaders don&rsquo;t succeed to write down the perfect requirements, analysts spend ages building up software architectures writing down pages of diagrams &ndash; software is definitely one of the most complex artifact humans can build up &ndash; and developers are human too, so they make mistakes too.</p>
+
+<p>The waterfall model is inspired by the industries, therefor by highly structured physical environments in which after-the-fact changes are prohibitively costly. We&rsquo;re writing software and software are virtuals, right? So, you can change the whole architecture without any additional cost &ndash; except the time you spend updating the code. Enlarging an array is not as costly as enlarging a kitchen. Why do we use this development model then? Maybe because it is straightforward to build software like we would build an aircraft – or because people did not read correctly <a href="http://www.cs.umd.edu/class/spring2003/cmsc838p/Process/waterfall.pdf">the article</a> Winston W. Royce wrote in 1970 where it presents this model and said that it &ldquo;is risky and invites failure&rdquo;. :)</p>
+
+<h2>The solution: Agile methods!</h2>
+
+<p>It is easy and cheap to update software code. At least easier and cheaper than moving the kitchen upstairs. Therefor you can easily <em>try &amp; see</em>. <em>Try</em> to implement a new feature and <em>see</em> if it 1) does work 2) is usefull. The rule of <a href="http://en.wikipedia.org/wiki/Pareto_principle">80/20</a> applies very well in the software industry – for instance 80% of users use less than 20% of a software features. Since <em>try &amp; see</em> looks like random programming I gonna present you some aspects of Agile development.</p>
+
+<p>Many Agile development methods exist and they all follow the <a href="http://agilemanifesto.org/principles.html">twelve principles</a> of the <a href="http://en.wikipedia.org/wiki/Agile_Manifesto">Agile Manifesto</a>. The four main values are:</p>
+
+<ul>
+<li><p><strong>Individuals and interactions</strong> over processes and tools</p></li>
+<li><p><strong>Working software</strong> over comprehensive documentation</p></li>
+<li><p><strong>Customer collaboration</strong> over contract negotiation</p></li>
+<li><p><strong>Responding to change</strong> over following a plan</p></li>
+</ul>
+
+
+<p>Interactions, collaboration, embrace change&hellip; looks great isn'it?! But it&rsquo;s easier to promote cool values than to follow them – and even harder to end up on a working software that suits user needs. To make it working, you have to follow an Agile method and work with people who want to follow it too.</p>
+
+<h2>Scrum — Get Agile!</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/Scrum_(development">Scrum</a>) is an Agile development methods. It has been designed for management of software development projects but can be usedas a general project management approach.</p>
+
+<h3>Roles</h3>
+
+<p>Scrum defines three main roles in a <em>Scrum team</em>:</p>
+
+<ul>
+<li><p>the <em>Scrum Master</em>, it maintains the process</p></li>
+<li><p>the <em>Product Owner</em>, usually the customer ‑ it sets the directions of the software</p></li>
+<li><p>the <em>Team</em>, it designs, develops, tests &amp; deploys the software. The team is self-managed.</p></li>
+</ul>
+
+
+<h3>Scrum init</h3>
+
+<p>The scrum process is initialized with the creation of the <em>product backlog</em>. The product backlog can be seen as a wish list containing all the features the software should have. The Scrum team (including the Scrum master &amp; the Product owner) is involved in the creation of the product backlog. The Product backlog is then reviewed and the features it contains are prioritized.</p>
+
+<h3>Three&hellip; Two&hellip; One&hellip; Ignition!</h3>
+
+<p>Once the product backlog is ready, the project is launched. The software development will be managed via small iterations from one to four weeks. At the end of each iteration, a new release of the software featuring new or updated features is deployed.</p>
+
+<p>The following schema shows the iterative process:</p>
+
+<p><img src="/images/wp-import/Scrum_process.png" alt="Scrum_process" /></p>
+
+<p>Each iterations (also called &ldquo;sprint&rdquo;) starts with the creation of a <em>sprint backlog</em>. The sprint backlog contains features coming from the product backlog which will be developed during the iteration. Everyday, a project status meeting called the Scrum occurs. The meeting is time-boxed to 15 minutes and everybody answers the three questions:</p>
+
+<ul>
+<li><p>What have you done since yesterday?</p></li>
+<li><p>What are you planning to do today?</p></li>
+<li><p>Do you have any problem preventing you from accomplishing your goal?</p></li>
+</ul>
+
+
+<p>At the end of each iteration, a new release of the software is deployed. The Product owner reviews this new release in order to validate it and to decide what the team has to developed or to refactor next.</p>
+
+<p>The Scrum method does not describe the way developers code &amp; test the application within a sprint allowing you to choose a method that suits your needs. The one I use is <a href="http://en.wikipedia.org/wiki/Behaviour_driven_development">Behaviour Driven Development</a>: it works as a charm with Scrum and it will be the topic of a future post.</p>
+
+<p>I am Scrum master on a project involving four developers for the web agency <a href="http://blog.o2sources.com">O2Sources</a>. We follow the Scrum method but we do not use every concepts and tools it offers like <a href="http://en.wikipedia.org/wiki/Scrum_(development">BurnDown chart</a>#Burn_down) or <a href="http://en.wikipedia.org/wiki/Scrum_(development">Pig &amp; Chicken roles</a>#Roles). I didn&rsquo;t talk about them in this post to keep it short and because I wanted to talk about concepts I know, I use and which works. Don&rsquo;t hesitate to discover them by yourself – the <a href="http://en.wikipedia.org/wiki/Scrum_(development">wikipedia page of Scrum</a>) could be a good start.</p>
+
+<p>The project I am working on for <a href="http://blog.o2sources.com">O2Sources</a> is called <em>Townce</em>. It is a Collaborative Working Web Application coded in <a href="http://rubyonrails.org/">Ruby on Rails</a>. We follow the principles of Scrum &amp;  Behavior Driven Development methods to manage its development. Thanks to the Agile method Scrum, we deploy new releases every one to two weeks. Every release is reviewed to adjust the design in oder to make it more intuitive, to develop only essential features and to refactor the code. To see our baby evolve one week after the other could not be possible without the use of great methods and tools like Scrum, Behavior Driven Development, Ruby on Rails, <a href="http://cukes.info/">Cucumber</a>, <a href="http://rspec.info/">RSpec</a>&hellip; but these are other topics.</p>
+]]></content>
+  </entry>
+  
+</feed>

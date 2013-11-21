@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ubuntu | Philippe Creux Weblog]]></title>
+  <link href="http://pcreux.com/blog/categories/ubuntu/atom.xml" rel="self"/>
+  <link href="http://pcreux.com/"/>
+  <updated>2013-11-20T16:27:30-08:00</updated>
+  <id>http://pcreux.com/</id>
+  <author>
+    <name><![CDATA[Philippe Creux]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Move your Ubuntu system to another computer in 3 simple steps]]></title>
+    <link href="http://pcreux.com/2010/01/28/move-ubuntu-to-another-computer-in-3-simple-steps/"/>
+    <updated>2010-01-28T18:13:30-08:00</updated>
+    <id>http://pcreux.com/2010/01/28/move-ubuntu-to-another-computer-in-3-simple-steps</id>
+    <content type="html"><![CDATA[<p>You just got a brand new machine but you won&rsquo;t like to spend hours tuning it to get the same configuration as the one you have used for years?</p>
+
+<p>Let&rsquo;s transfer your Ubuntu configuration and applications to your new computer in three simple steps.</p>
+
+<p>This method is cross-architecture. I moved successfully my configuration and applications from an Ubuntu 9.04 32bit to a 64bit one.</p>
+
+<h2>Prerequisites:</h2>
+
+<p>The same version of Ubuntu is installed on both machines. The architecture (32/64 bit) can be different.</p>
+
+<h2>Step 1: Store the list of installed packages</h2>
+
+<p>Run the following command on the source machine to store the installed packages names in <code>~/pkglist</code>:
+<code>sudo dpkg --get-selections | sed "s/.*deinstall//" | sed "s/install$//g" &gt; ~/pkglist</code></p>
+
+<h2>Step 2: Transfer your config</h2>
+
+<p>Use <code>scp</code> or <code>rsync</code> or even a flash drive to transfer your home directory (<code>~/*</code>, <code>~/.*</code>), the source list (<code>/etc/apt/sources.list</code>) and any other files you customized or installed (like apache config under <code>/etc</code> or softwares on <code>/opt</code>) from the source machine to the target one.</p>
+
+<h2>Step 3: Install packages</h2>
+
+<p>On the target machine run the following command in a failsafe terminal session to install your packages:</p>
+
+<p><code>sudo aptitude update &amp;&amp; cat pkglist | xargs sudo aptitude install -y</code></p>
+
+<p>That&rsquo;s all folks!</p>
+
+<p>Log into your new machine and keep working as if you were using the previous one.</p>
+
+<p><img src="/images/wp-import/clone-ubuntu.jpg" alt="A freshly transfered Ubuntu install" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How-to make the front mic working on Ubuntu 9.10 (Dell laptop: Intel Hda soundcard)]]></title>
+    <link href="http://pcreux.com/2009/11/12/how-to-make-front-mic-working-on-ubuntu-9-10-dell-laptop-intel-hda-soundcard/"/>
+    <updated>2009-11-12T06:42:48-08:00</updated>
+    <id>http://pcreux.com/2009/11/12/how-to-make-front-mic-working-on-ubuntu-9-10-dell-laptop-intel-hda-soundcard</id>
+    <content type="html"><![CDATA[<p>Ubuntu 9.10 comes with alsa 1.0.20 allowing the front mic to work on a Dell XPS M1530. From the Sound Preferences, select Microphone 2 then fire up a terminal, launch <code>alsamixer -V capture</code> and set the following options and enjoy!</p>
+
+<p><img src="/images/wp-import/Screenshot-AlsaMixer.png" alt="Screenshot-AlsaMixer" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How-to fix low volume on Ubuntu (Dell laptop: Intel Hda soundcard)]]></title>
+    <link href="http://pcreux.com/2009/09/18/how-to-fix-low-volume-on-ubuntu-dell-laptop-intel-hda-soundcard/"/>
+    <updated>2009-09-18T08:30:56-07:00</updated>
+    <id>http://pcreux.com/2009/09/18/how-to-fix-low-volume-on-ubuntu-dell-laptop-intel-hda-soundcard</id>
+    <content type="html"><![CDATA[<p>It took me a while to find a way to fix it as all the alsa-mixers where set at 100%.</p>
+
+<p>The solution: run <code>alsamixer -D hw:0</code> to display a new mixer called &ldquo;Front&rdquo; set at 70% by default &ndash; shift it to 100% and you can now listen to music or watch a film at a comfortable level!</p>
+
+<p>Ps: If anyone knows how to increase the internal mic input volume and/or make the front mic work on an Dell XPS M1530: I&rsquo;m definitely interested!</p>
+]]></content>
+  </entry>
+  
+</feed>

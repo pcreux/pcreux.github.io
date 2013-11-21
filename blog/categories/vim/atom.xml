@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: VIM | Philippe Creux Weblog]]></title>
+  <link href="http://pcreux.com/blog/categories/vim/atom.xml" rel="self"/>
+  <link href="http://pcreux.com/"/>
+  <updated>2013-11-20T16:27:30-08:00</updated>
+  <id>http://pcreux.com/</id>
+  <author>
+    <name><![CDATA[Philippe Creux]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Back to VIM for Ruby and Rails]]></title>
+    <link href="http://pcreux.com/2009/11/16/back-to-vim-for-ruby-and-rails/"/>
+    <updated>2009-11-16T09:43:18-08:00</updated>
+    <id>http://pcreux.com/2009/11/16/back-to-vim-for-ruby-and-rails</id>
+    <content type="html"><![CDATA[<p>I learned to use VIM at the university to administrate linux systems and to develop C++ apps. Then I moved to Java and I enjoyed using an IDE like Netbeans. When I started to play with Ruby and Rails I kept using Netbeans as my editor of choice as it plays <a href="http://netbeans.org/features/ruby/index.html">very well with them</a>.</p>
+
+<p>As I was bored with &ldquo;Up arrow key, End key, Enter key&rdquo; instead of &ldquo;O&rdquo; to insert a new line above my cursor and I wanted to play again with this so old but still alive editor, I installed the plugins: <a href="http://www.vim.org/scripts/script.php?script_id=1567">rails.vim</a> (just great), <a href="http://www.vim.org/scripts/script.php?script_id=1773">haml syntax highlight</a> (I ♡ haml) and <a href="http://blog.infinitered.com/entries/show/8">irblack color scheme</a> (more Textmate like).</p>
+
+<p>With rails.vim, you get just great shortcuts to browse your rails source file. Type <code>:Rmodel your_model_name</code> to edit your model source file — <code>:Rcontroller</code>, <code>:Rview</code>, <code>:Rmigration</code>, <code>:Rjavascript</code>, <code>:Rstylesheet</code>&hellip; work too! It also includes <code>:A</code> (jump to alternate file) and <code>:R</code> (jump to relative file) commands. <code>:A</code> switches between source code and corresponding spec file, <code>:R</code> jumps from model to migration file. The most amazing combo: <code>:AV</code> to open up the alternative file (your spec file usually) in a vertical split window.</p>
+
+<p>I finish up with the two commands I learned to use and love.1) Type <code>ma</code> to &ldquo;mark&rdquo; your cursor position as &lsquo;a&rsquo; then type <code>'a</code> to get back to this position. 2) Use <code>qa</code> to record a macro in &lsquo;a&rsquo;, press q again to stop recording. Then @a to replay it. Using commands to jump to next word / end of line / next something character it can be much faster than making a substitution using regexp or so.</p>
+]]></content>
+  </entry>
+  
+</feed>

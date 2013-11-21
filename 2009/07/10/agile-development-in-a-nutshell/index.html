@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Agile Development in a Nutshell - Philippe Creux Weblog</title>
+  <meta name="author" content="Philippe Creux">
+
+  
+  <meta name="description" content="Funny isn&rsquo;t it? But that is the way it goes in many companies developing software – especially in big companies and on big projects. This is &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://pcreux.com/2009/07/10/agile-development-in-a-nutshell">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Philippe Creux Weblog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Philippe Creux Weblog</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:pcreux.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Agile Development in a Nutshell</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-10T18:44:57-07:00" pubdate data-updated="true">Jul 10<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img src="/images/wp-import/screenshot1.png" alt="Waterfall project Cartoon - Generated from http://www.projectcartoon.com/" /></p>
+
+<p>Funny isn&rsquo;t it? But that is the way it goes in many companies developing software – especially in big companies and on big projects. This is the old school &ndash; but widely used &ndash; <a href="http://en.wikipedia.org/wiki/Waterfall_model">waterfall model</a>. This software development process goes through the phases of Requirements, Design, Development, Testing &amp; Maintenance one after the other. It relies on the dream that once a step is 100% complete, it is also 100% right and it drives us to the delivery of a working software even the one the customer wants. But it doesn&rsquo;t go that way in the software industry: customers don&rsquo;t know what they need and use to ask many useless features, project leaders don&rsquo;t succeed to write down the perfect requirements, analysts spend ages building up software architectures writing down pages of diagrams &ndash; software is definitely one of the most complex artifact humans can build up &ndash; and developers are human too, so they make mistakes too.</p>
+
+<p>The waterfall model is inspired by the industries, therefor by highly structured physical environments in which after-the-fact changes are prohibitively costly. We&rsquo;re writing software and software are virtuals, right? So, you can change the whole architecture without any additional cost &ndash; except the time you spend updating the code. Enlarging an array is not as costly as enlarging a kitchen. Why do we use this development model then? Maybe because it is straightforward to build software like we would build an aircraft – or because people did not read correctly <a href="http://www.cs.umd.edu/class/spring2003/cmsc838p/Process/waterfall.pdf">the article</a> Winston W. Royce wrote in 1970 where it presents this model and said that it &ldquo;is risky and invites failure&rdquo;. :)</p>
+
+<h2>The solution: Agile methods!</h2>
+
+<p>It is easy and cheap to update software code. At least easier and cheaper than moving the kitchen upstairs. Therefor you can easily <em>try &amp; see</em>. <em>Try</em> to implement a new feature and <em>see</em> if it 1) does work 2) is usefull. The rule of <a href="http://en.wikipedia.org/wiki/Pareto_principle">80/20</a> applies very well in the software industry – for instance 80% of users use less than 20% of a software features. Since <em>try &amp; see</em> looks like random programming I gonna present you some aspects of Agile development.</p>
+
+<p>Many Agile development methods exist and they all follow the <a href="http://agilemanifesto.org/principles.html">twelve principles</a> of the <a href="http://en.wikipedia.org/wiki/Agile_Manifesto">Agile Manifesto</a>. The four main values are:</p>
+
+<ul>
+<li><p><strong>Individuals and interactions</strong> over processes and tools</p></li>
+<li><p><strong>Working software</strong> over comprehensive documentation</p></li>
+<li><p><strong>Customer collaboration</strong> over contract negotiation</p></li>
+<li><p><strong>Responding to change</strong> over following a plan</p></li>
+</ul>
+
+
+<p>Interactions, collaboration, embrace change&hellip; looks great isn&#8217;it?! But it&rsquo;s easier to promote cool values than to follow them – and even harder to end up on a working software that suits user needs. To make it working, you have to follow an Agile method and work with people who want to follow it too.</p>
+
+<h2>Scrum — Get Agile!</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/Scrum_(development">Scrum</a>) is an Agile development methods. It has been designed for management of software development projects but can be usedas a general project management approach.</p>
+
+<h3>Roles</h3>
+
+<p>Scrum defines three main roles in a <em>Scrum team</em>:</p>
+
+<ul>
+<li><p>the <em>Scrum Master</em>, it maintains the process</p></li>
+<li><p>the <em>Product Owner</em>, usually the customer ‑ it sets the directions of the software</p></li>
+<li><p>the <em>Team</em>, it designs, develops, tests &amp; deploys the software. The team is self-managed.</p></li>
+</ul>
+
+
+<h3>Scrum init</h3>
+
+<p>The scrum process is initialized with the creation of the <em>product backlog</em>. The product backlog can be seen as a wish list containing all the features the software should have. The Scrum team (including the Scrum master &amp; the Product owner) is involved in the creation of the product backlog. The Product backlog is then reviewed and the features it contains are prioritized.</p>
+
+<h3>Three&hellip; Two&hellip; One&hellip; Ignition!</h3>
+
+<p>Once the product backlog is ready, the project is launched. The software development will be managed via small iterations from one to four weeks. At the end of each iteration, a new release of the software featuring new or updated features is deployed.</p>
+
+<p>The following schema shows the iterative process:</p>
+
+<p><img src="/images/wp-import/Scrum_process.png" alt="Scrum_process" /></p>
+
+<p>Each iterations (also called &ldquo;sprint&rdquo;) starts with the creation of a <em>sprint backlog</em>. The sprint backlog contains features coming from the product backlog which will be developed during the iteration. Everyday, a project status meeting called the Scrum occurs. The meeting is time-boxed to 15 minutes and everybody answers the three questions:</p>
+
+<ul>
+<li><p>What have you done since yesterday?</p></li>
+<li><p>What are you planning to do today?</p></li>
+<li><p>Do you have any problem preventing you from accomplishing your goal?</p></li>
+</ul>
+
+
+<p>At the end of each iteration, a new release of the software is deployed. The Product owner reviews this new release in order to validate it and to decide what the team has to developed or to refactor next.</p>
+
+<p>The Scrum method does not describe the way developers code &amp; test the application within a sprint allowing you to choose a method that suits your needs. The one I use is <a href="http://en.wikipedia.org/wiki/Behaviour_driven_development">Behaviour Driven Development</a>: it works as a charm with Scrum and it will be the topic of a future post.</p>
+
+<p>I am Scrum master on a project involving four developers for the web agency <a href="http://blog.o2sources.com">O2Sources</a>. We follow the Scrum method but we do not use every concepts and tools it offers like <a href="http://en.wikipedia.org/wiki/Scrum_(development">BurnDown chart</a>#Burn_down) or <a href="http://en.wikipedia.org/wiki/Scrum_(development">Pig &amp; Chicken roles</a>#Roles). I didn&rsquo;t talk about them in this post to keep it short and because I wanted to talk about concepts I know, I use and which works. Don&rsquo;t hesitate to discover them by yourself – the <a href="http://en.wikipedia.org/wiki/Scrum_(development">wikipedia page of Scrum</a>) could be a good start.</p>
+
+<p>The project I am working on for <a href="http://blog.o2sources.com">O2Sources</a> is called <em>Townce</em>. It is a Collaborative Working Web Application coded in <a href="http://rubyonrails.org/">Ruby on Rails</a>. We follow the principles of Scrum &amp;  Behavior Driven Development methods to manage its development. Thanks to the Agile method Scrum, we deploy new releases every one to two weeks. Every release is reviewed to adjust the design in oder to make it more intuitive, to develop only essential features and to refactor the code. To see our baby evolve one week after the other could not be possible without the use of great methods and tools like Scrum, Behavior Driven Development, Ruby on Rails, <a href="http://cukes.info/">Cucumber</a>, <a href="http://rspec.info/">RSpec</a>&hellip; but these are other topics.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">pcreux</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-10T18:44:57-07:00" pubdate data-updated="true">Jul 10<span>th</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/agile/'>Agile</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://pcreux.com/2009/07/10/agile-development-in-a-nutshell/" data-via="pcreux" data-counturl="http://pcreux.com/2009/07/10/agile-development-in-a-nutshell/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2009/07/06/rak-e28094-grep-on-ruby-steroids/" title="Previous Post: Rak — Grep on (ruby) steroïds">&laquo; Rak — Grep on (ruby) steroïds</a>
+      
+      
+        <a class="basic-alignment right" href="/2009/07/16/rubular-e28094-regular-expressions-editing-testing-made-easy/" title="Next Post: Rubular — Regular expressions editing & testing made easy">Rubular — Regular expressions editing & testing made easy &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2011/03/18/disable-enable-nagios-notifications-via-command-line-curl/">Disable / Enable Nagios notifications from command line</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/09/06/my-cucumber-best-practices-and-tips/">(My) Cucumber best practices and tips</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/08/31/get-integrity-to-play-well-with-rails-3-and-bundler-1-0/">Get Integrity to play well with Rails 3 and Bundler 1.0</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/05/26/speed-up-your-specs-with-set/">Speed up RSpec with set()</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/05/19/get-back-scriptrunner-in-rails-3-x/">Get script/runner back in Rails 3</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/pcreux">@pcreux</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pcreux',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>On Delicious</h1>
+  <div id="delicious"></div>
+  <script type="text/javascript" src="http://feeds.delicious.com/v2/json/pcreux?count=3&amp;sort=date&amp;callback=renderDeliciousLinks"></script>
+  <p><a href="http://delicious.com/pcreux">My Delicious Bookmarks &raquo;</a></p>
+</section>
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Philippe Creux -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'pcreux';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://pcreux.com/2009/07/10/agile-development-in-a-nutshell/';
+        var disqus_url = 'http://pcreux.com/2009/07/10/agile-development-in-a-nutshell/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

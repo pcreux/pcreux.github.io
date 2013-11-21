@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Paperclip | Philippe Creux Weblog]]></title>
+  <link href="http://pcreux.com/blog/categories/paperclip/atom.xml" rel="self"/>
+  <link href="http://pcreux.com/"/>
+  <updated>2013-11-20T16:27:30-08:00</updated>
+  <id>http://pcreux.com/</id>
+  <author>
+    <name><![CDATA[Philippe Creux]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[File versioning in Ruby on Rails with Paperclip & acts_as_versioned]]></title>
+    <link href="http://pcreux.com/2009/07/23/file-versioning-in-ruby-on-rails-with-paperclip-acts_as_versioned/"/>
+    <updated>2009-07-23T12:50:11-07:00</updated>
+    <id>http://pcreux.com/2009/07/23/file-versioning-in-ruby-on-rails-with-paperclip-acts_as_versioned</id>
+    <content type="html"><![CDATA[<p>This short tutorial shows you how to manage file versioning in Ruby on Rails by making <a href="http://thoughtbot.com/projects/paperclip">Paperclip</a> falling in love with <a href="http://github.com/technoweenie/acts_as_versioned/tree/master">acts_as_versioned</a>. Paperclip &amp; acts_as_versioned are plug-ins for Ruby on Rails: Paperclip manages file upload, acts_as_versioned enables models versioning.</p>
+
+<h2>Patch Paperclip</h2>
+
+<p>I patched Paperclip to keep old files when a new revision is saved. A fork of Paperclip adding the option <code>keep_old_files</code> to make Paperclip working with acts_as_versioned is available here: <a href="http://github.com/pcreux/paperclip/tree/master">http://github.com/pcreux/paperclip/tree/master</a>. You can install it running:</p>
+
+<pre><code>script/plugin install pcreux_paperclip
+</code></pre>
+
+<h2>Update your Paperclip + acts_as_versioned model</h2>
+
+<p>Just three things to do:</p>
+
+<ol>
+<li>update the url &amp; path to store your files by &lsquo;version&rsquo;</li>
+<li>set the option <code>keep_old_files</code> to <code>true</code> when a new version get saved</li>
+<li>add the interpolation of <code>:version</code></li>
+</ol>
+
+
+<p>```ruby
+class Document &lt; ActiveRecord::Base
+  has_attached_file :attachment,</p>
+
+<pre><code>                :url =&gt; "/system/attachments/:id/:version/:style/:basename.:extension",
+                :path =&gt; ":rails_root/public/system/attachments/:id/:version/:style/:basename.:extension",
+                :keep_old_files =&gt; :version_condition_met?
+</code></pre>
+
+<p>  acts_as_versioned</p>
+
+<p>  Paperclip.interpolates :version do |attachement, style|</p>
+
+<pre><code>attachement.instance.version.to_s
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>I hope it helps. :)</p>
+]]></content>
+  </entry>
+  
+</feed>

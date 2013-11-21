@@ -1,0 +1,593 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>(My) RSpec best practices and tips - Philippe Creux Weblog</title>
+  <meta name="author" content="Philippe Creux">
+
+  
+  <meta name="description" content="After a year using RSpec, I&rsquo;m happy to share &ldquo;(My) RSpec Best Practices and Tips&rdquo;. Let&rsquo;s make your specs easier to maintain, &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://pcreux.com/2010/03/28/my-rspec-best-practices-and-tips">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Philippe Creux Weblog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Philippe Creux Weblog</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:pcreux.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">(My) RSpec Best Practices and Tips</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-28T19:21:07-07:00" pubdate data-updated="true">Mar 28<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>After a year using RSpec, I&rsquo;m happy to share &ldquo;(My) RSpec Best Practices and Tips&rdquo;. Let&rsquo;s make your specs easier to maintain, less verbose, more structured and covering more cases!</p>
+
+<h2>Use shortcuts <em>specify {}</em>, <em>it {}</em> and <em>subject {}</em></h2>
+
+<p>You think RSpec is verbose? In case your code doesn&rsquo;t need any description, use a <em>specify block</em>!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">it</span> <span class="s2">&quot;should be valid&quot;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="vi">@user</span><span class="o">.</span><span class="n">should</span> <span class="n">be_valid</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>can be replaced with</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">specify</span> <span class="p">{</span> <span class="vi">@user</span><span class="o">.</span><span class="n">should</span> <span class="n">be_valid</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>RSpec will generate a nice description text for you when running this expectation. Even better, you can use the <em>it block</em>!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">User</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">validate_presence_of</span> <span class="ss">:name</span> <span class="p">}</span>
+</span><span class='line'>  <span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">have_one</span> <span class="ss">:address</span> <span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In case the subject is the not the class described, just set it with the <em>subject</em> method:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">subject</span> <span class="p">{</span> <span class="vi">@user</span><span class="o">.</span><span class="n">address</span> <span class="p">}</span>
+</span><span class='line'><span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">be_valid</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Start context with &lsquo;when&rsquo;/&lsquo;with&rsquo; and methods description with &lsquo;#&rsquo;</h2>
+
+<p>Have you ever get a failed test with an incomprehensible error message like:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">User</span> <span class="n">non</span> <span class="n">confirmed</span> <span class="n">confirm</span> <span class="n">email</span> <span class="n">wrong</span> <span class="n">token</span> <span class="n">should</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">valid</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Start your <em>contexts</em> with <em>when</em> and get nice messages like:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">User</span> <span class="k">when</span> <span class="n">non</span> <span class="n">confirmed</span> <span class="k">when</span> <span class="c1">#confirm_email with wrong token should not be valid</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Use RSpec matchers to get meaningful messages</h2>
+
+<p>In case of failure</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">specify</span> <span class="p">{</span> <span class="n">user</span><span class="o">.</span><span class="n">valid?</span><span class="o">.</span><span class="n">should</span> <span class="o">==</span> <span class="kp">true</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>displays:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="s1">&#39;User should == true&#39;</span> <span class="no">FAILED</span>
+</span><span class='line'>  <span class="ss">expected</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+</span><span class='line'>  <span class="ss">got</span><span class="p">:</span> <span class="kp">false</span> <span class="p">(</span><span class="n">using</span> <span class="o">==</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>While</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">specify</span> <span class="p">{</span> <span class="n">user</span><span class="o">.</span><span class="n">should</span> <span class="n">be_valid</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>displays:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="s1">&#39;User should be valid&#39;</span> <span class="no">FAILED</span>
+</span><span class='line'>  <span class="n">expected</span> <span class="n">valid?</span> <span class="n">to</span> <span class="k">return</span> <span class="kp">true</span><span class="p">,</span> <span class="n">got</span> <span class="kp">false</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Nice eh?</p>
+
+<h2>Only one expectation per <em>it block</em></h2>
+
+<p>I often see specs where it blocks contain several expectations. This makes your tests harder to read and maintain.</p>
+
+<p>So instead of that&hellip;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">DemoMan</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should have expected attributes&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">demo_man</span> <span class="o">=</span> <span class="no">DemoMan</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'>    <span class="n">demo_man</span><span class="o">.</span><span class="n">should</span> <span class="n">respond_to</span> <span class="ss">:name</span>
+</span><span class='line'>    <span class="n">demo_man</span><span class="o">.</span><span class="n">should</span> <span class="n">respond_to</span> <span class="ss">:gender</span>
+</span><span class='line'>    <span class="n">demo_man</span><span class="o">.</span><span class="n">should</span> <span class="n">respond_to</span> <span class="ss">:age</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>&hellip; do this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">DemoMan</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">before</span><span class="p">(</span><span class="ss">:all</span><span class="p">)</span> <span class="k">do</span>
+</span><span class='line'>    <span class="vi">@demo_man</span> <span class="o">=</span> <span class="no">DemoMan</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">subject</span> <span class="p">{</span> <span class="vi">@demo_man</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">respond_to</span> <span class="ss">:name</span>   <span class="p">}</span>
+</span><span class='line'>  <span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">respond_to</span> <span class="ss">:gender</span> <span class="p">}</span>
+</span><span class='line'>  <span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">respond_to</span> <span class="ss">:age</span>    <span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>(Over)use describe and context</h2>
+
+<p>Big specs can be a joy to play with as long as they are ordered and DRY. Use nested <em>describe</em> and <em>context</em> blocks as much as you can, each level adding its own specificity in the before block.
+To check your specs are well organized, run them in &lsquo;nested&rsquo; mode (<code>spec spec/my_spec.rb -cf nested</code>).
+Using <code>before(:each)</code> in each context and describe blocks will help you set up the environment without repeating yourself. It also enables you to use <em>it {}</em> blocks.</p>
+
+<h3>Bad:</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">User</span> <span class="k">do</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should save when name is not empty&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;Alex&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="o">.</span><span class="n">should</span> <span class="o">==</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should not save when name is empty&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">save</span><span class="o">.</span><span class="n">should</span> <span class="o">==</span> <span class="kp">false</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should not be valid when name is empty&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be_valid</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should be valid when name is not empty&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;Alex&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">should</span> <span class="n">be_valid</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should give the user a flower when gender is W&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:gender</span> <span class="o">=&gt;</span> <span class="s1">&#39;W&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">present</span><span class="o">.</span><span class="n">should</span> <span class="n">be_a</span> <span class="no">Flower</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should give the user a iMac when gender is M&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:gender</span> <span class="o">=&gt;</span> <span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">present</span><span class="o">.</span><span class="n">should</span> <span class="n">be_an</span> <span class="no">IMac</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Good:</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">User</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">before</span> <span class="p">{</span> <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">subject</span> <span class="p">{</span> <span class="vi">@user</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">context</span> <span class="s2">&quot;when name empty&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="ow">not</span> <span class="n">be_valid</span> <span class="p">}</span>
+</span><span class='line'>    <span class="n">specify</span> <span class="p">{</span> <span class="vi">@user</span><span class="o">.</span><span class="n">save</span><span class="o">.</span><span class="n">should</span> <span class="o">==</span> <span class="kp">false</span> <span class="p">}</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">context</span> <span class="s2">&quot;when name not empty&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">before</span> <span class="p">{</span> <span class="vi">@user</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Sam&#39;</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">be_valid</span> <span class="p">}</span>
+</span><span class='line'>    <span class="n">specify</span> <span class="p">{</span> <span class="vi">@user</span><span class="o">.</span><span class="n">save</span><span class="o">.</span><span class="n">should</span> <span class="o">==</span> <span class="kp">true</span> <span class="p">}</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">describe</span> <span class="ss">:present</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">subject</span> <span class="p">{</span> <span class="vi">@user</span><span class="o">.</span><span class="n">present</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">context</span> <span class="s2">&quot;when user is a W&quot;</span> <span class="k">do</span>
+</span><span class='line'>      <span class="n">before</span> <span class="p">{</span> <span class="vi">@user</span><span class="o">.</span><span class="n">gender</span> <span class="o">=</span> <span class="s1">&#39;W&#39;</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">be_a</span> <span class="no">Flower</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">context</span> <span class="s2">&quot;when user is a M&quot;</span> <span class="k">do</span>
+</span><span class='line'>      <span class="n">before</span> <span class="p">{</span> <span class="vi">@user</span><span class="o">.</span><span class="n">gender</span> <span class="o">=</span> <span class="s1">&#39;M&#39;</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">be_an</span> <span class="no">IMac</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Test Valid, Edge and Invalid cases</h2>
+
+<p>This is called <em>Boundary value analysis</em>, it&rsquo;s simple and it will help you to cover the most important cases. Just split-up method&rsquo;s input or object&rsquo;s attributes into valid and invalid partitions and test both of them and there boundaries. A method specification might look like that:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="s2">&quot;#month_in_english(month_id)&quot;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">context</span> <span class="s2">&quot;when valid&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">it</span> <span class="s2">&quot;should return &#39;January&#39; for 1&quot;</span> <span class="c1"># lower boundary</span>
+</span><span class='line'>    <span class="n">it</span> <span class="s2">&quot;should return &#39;March&#39; for 3&quot;</span>
+</span><span class='line'>    <span class="n">it</span> <span class="s2">&quot;should return &#39;December&#39; for 12&quot;</span> <span class="c1"># upper boundary</span>
+</span><span class='line'>  <span class="n">context</span> <span class="s2">&quot;when invalid&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">it</span> <span class="s2">&quot;should return nil for 0&quot;</span>
+</span><span class='line'>    <span class="n">it</span> <span class="s2">&quot;should return nil for 13&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I hope this will help you improve your specs. Let me know if I missed anything! :)</p>
+
+<p>You could also be interested in <a href="http://eggsonbread.com/2010/09/06/my-cucumber-best-practices-and-tips/">(My) Cucumber best practices and tips</a> or <a href="https://github.com/pcreux/rspec-set">rspec-set</a> a little gem that helps you speeding up your model specs.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">pcreux</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-28T19:21:07-07:00" pubdate data-updated="true">Mar 28<span>th</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/best-practice/'>Best Practice</a>, <a class='category' href='/blog/categories/rspec/'>RSpec</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://pcreux.com/2010/03/28/my-rspec-best-practices-and-tips/" data-via="pcreux" data-counturl="http://pcreux.com/2010/03/28/my-rspec-best-practices-and-tips/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2010/02/12/migrate-rubygems-to-ruby-enterprise-edition-ree/" title="Previous Post: Migrate Rubygems to Ruby Enterprise Edition (REE)">&laquo; Migrate Rubygems to Ruby Enterprise Edition (REE)</a>
+      
+      
+        <a class="basic-alignment right" href="/2010/05/19/get-back-scriptrunner-in-rails-3-x/" title="Next Post: Get script/runner back in Rails 3">Get script/runner back in Rails 3 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2011/03/18/disable-enable-nagios-notifications-via-command-line-curl/">Disable / Enable Nagios notifications from command line</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/09/06/my-cucumber-best-practices-and-tips/">(My) Cucumber best practices and tips</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/08/31/get-integrity-to-play-well-with-rails-3-and-bundler-1-0/">Get Integrity to play well with Rails 3 and Bundler 1.0</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/05/26/speed-up-your-specs-with-set/">Speed up RSpec with set()</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/05/19/get-back-scriptrunner-in-rails-3-x/">Get script/runner back in Rails 3</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/pcreux">@pcreux</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pcreux',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>On Delicious</h1>
+  <div id="delicious"></div>
+  <script type="text/javascript" src="http://feeds.delicious.com/v2/json/pcreux?count=3&amp;sort=date&amp;callback=renderDeliciousLinks"></script>
+  <p><a href="http://delicious.com/pcreux">My Delicious Bookmarks &raquo;</a></p>
+</section>
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Philippe Creux -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'pcreux';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://pcreux.com/2010/03/28/my-rspec-best-practices-and-tips/';
+        var disqus_url = 'http://pcreux.com/2010/03/28/my-rspec-best-practices-and-tips/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
