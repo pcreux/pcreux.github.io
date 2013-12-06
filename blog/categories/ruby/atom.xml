@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ruby | Philippe Creux Weblog]]></title>
-  <link href="http://pcreux.com/blog/categories/ruby/atom.xml" rel="self"/>
-  <link href="http://pcreux.com/"/>
-  <updated>2013-11-20T16:27:30-08:00</updated>
-  <id>http://pcreux.com/</id>
+  <link href="http://pcreux.github.io/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://pcreux.github.io/"/>
+  <updated>2013-12-05T13:07:22-08:00</updated>
+  <id>http://pcreux.github.io/</id>
   <author>
     <name><![CDATA[Philippe Creux]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[(My) Cucumber best practices and tips]]></title>
-    <link href="http://pcreux.com/2010/09/06/my-cucumber-best-practices-and-tips/"/>
+    <link href="http://pcreux.github.io/2010/09/06/my-cucumber-best-practices-and-tips/"/>
     <updated>2010-09-06T21:55:21-07:00</updated>
-    <id>http://pcreux.com/2010/09/06/my-cucumber-best-practices-and-tips</id>
+    <id>http://pcreux.github.io/2010/09/06/my-cucumber-best-practices-and-tips</id>
     <content type="html"><![CDATA[<p>After <a href="http://eggsonbread.com/2010/03/28/my-rspec-best-practices-and-tips/">(My) RSpec best practices and tips</a>, I&rsquo;m happy to share my Cucumber best practices and tips!</p>
 
 <p>This article will help you organize, clarify and reduce the size of your cucumber scenarios.</p>
@@ -121,7 +121,7 @@ Examples:
 <p>A step can take a <a href="http://wiki.github.com/aslakhellesoy/cucumber/multiline-step-arguments">multi-line table as an argument</a>. This is a great way to load up a bunch of data or to test the rendering of lists and tables. For instance:</p>
 
 <p>```cucumber
-  Given I sent &ldquo;$25&rdquo; to &ldquo;<a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#x6d;&#x75;&#x6b;&#109;&#x75;&#107;&#x40;&#101;&#x78;&#97;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#99;&#111;&#x6d;">&#x6d;&#x75;&#x6b;&#109;&#x75;&#107;&#64;&#101;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#x2e;&#99;&#111;&#x6d;</a>&rdquo; from my &ldquo;Bank account&rdquo;
+  Given I sent &ldquo;$25&rdquo; to &ldquo;<a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#58;&#x6d;&#x75;&#x6b;&#109;&#117;&#107;&#x40;&#101;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#99;&#111;&#109;">&#x6d;&#x75;&#x6b;&#x6d;&#117;&#107;&#64;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#101;&#x2e;&#99;&#111;&#x6d;</a>&rdquo; from my &ldquo;Bank account&rdquo;
   Then I should see the following transaction history:</p>
 
 <pre><code>| create     | complete    |
@@ -157,9 +157,9 @@ end
   
   <entry>
     <title type="html"><![CDATA[Get Integrity to play well with Rails 3 and Bundler 1.0]]></title>
-    <link href="http://pcreux.com/2010/08/31/get-integrity-to-play-well-with-rails-3-and-bundler-1-0/"/>
+    <link href="http://pcreux.github.io/2010/08/31/get-integrity-to-play-well-with-rails-3-and-bundler-1-0/"/>
     <updated>2010-08-31T15:01:59-07:00</updated>
-    <id>http://pcreux.com/2010/08/31/get-integrity-to-play-well-with-rails-3-and-bundler-1-0</id>
+    <id>http://pcreux.github.io/2010/08/31/get-integrity-to-play-well-with-rails-3-and-bundler-1-0</id>
     <content type="html"><![CDATA[<p>The latest &ldquo;stable&rdquo; version of Integrity (v22) doesn&rsquo;t play well with Rails 3 (or any other application using bundler 1.0). Basically the Integrity&rsquo;s Gemfile is used in place of the application&rsquo;s Gemfile when running the tests.</p>
 
 <p>With a Rails 3 application you are likely to get:</p>
@@ -194,9 +194,9 @@ end
   
   <entry>
     <title type="html"><![CDATA[(My) RSpec best practices and tips]]></title>
-    <link href="http://pcreux.com/2010/03/28/my-rspec-best-practices-and-tips/"/>
+    <link href="http://pcreux.github.io/2010/03/28/my-rspec-best-practices-and-tips/"/>
     <updated>2010-03-28T19:21:07-07:00</updated>
-    <id>http://pcreux.com/2010/03/28/my-rspec-best-practices-and-tips</id>
+    <id>http://pcreux.github.io/2010/03/28/my-rspec-best-practices-and-tips</id>
     <content type="html"><![CDATA[<p>After a year using RSpec, I&rsquo;m happy to share &ldquo;(My) RSpec Best Practices and Tips&rdquo;. Let&rsquo;s make your specs easier to maintain, less verbose, more structured and covering more cases!</p>
 
 <h2>Use shortcuts <em>specify {}</em>, <em>it {}</em> and <em>subject {}</em></h2>
@@ -440,9 +440,9 @@ end
   
   <entry>
     <title type="html"><![CDATA[Migrate Rubygems to Ruby Enterprise Edition (REE)]]></title>
-    <link href="http://pcreux.com/2010/02/12/migrate-rubygems-to-ruby-enterprise-edition-ree/"/>
+    <link href="http://pcreux.github.io/2010/02/12/migrate-rubygems-to-ruby-enterprise-edition-ree/"/>
     <updated>2010-02-12T14:24:26-08:00</updated>
-    <id>http://pcreux.com/2010/02/12/migrate-rubygems-to-ruby-enterprise-edition-ree</id>
+    <id>http://pcreux.github.io/2010/02/12/migrate-rubygems-to-ruby-enterprise-edition-ree</id>
     <content type="html"><![CDATA[<p>If you have a server running the default Ruby interpreter (&ldquo;Matz&rsquo;s Ruby Interpreter&rdquo; or &ldquo;Ruby MRI&rdquo;) and you want to switch to <a href="http://www.rubyenterpriseedition.com/">Ruby Enterprise Edition</a> (REE) the following script will help you migrating the gems.</p>
 
 <p>Once you have installed Ruby Enterprise Edition run this script so that REE installs the gems installed on your default ruby environment.</p>
@@ -453,9 +453,9 @@ end
   
   <entry>
     <title type="html"><![CDATA[Ruby 1.9 faster than Ruby 1.8?]]></title>
-    <link href="http://pcreux.com/2009/10/28/ruby-1-9-faster-than-ruby-1-8/"/>
+    <link href="http://pcreux.github.io/2009/10/28/ruby-1-9-faster-than-ruby-1-8/"/>
     <updated>2009-10-28T04:17:42-07:00</updated>
-    <id>http://pcreux.com/2009/10/28/ruby-1-9-faster-than-ruby-1-8</id>
+    <id>http://pcreux.github.io/2009/10/28/ruby-1-9-faster-than-ruby-1-8</id>
     <content type="html"><![CDATA[<p>Today I ran the following script with Ruby 1.8 &amp; Ruby 1.9 to compare their performances:</p>
 
 <p>```ruby

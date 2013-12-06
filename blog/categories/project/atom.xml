@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Project | Philippe Creux Weblog]]></title>
-  <link href="http://pcreux.com/blog/categories/project/atom.xml" rel="self"/>
-  <link href="http://pcreux.com/"/>
-  <updated>2013-11-20T16:27:30-08:00</updated>
-  <id>http://pcreux.com/</id>
+  <link href="http://pcreux.github.io/blog/categories/project/atom.xml" rel="self"/>
+  <link href="http://pcreux.github.io/"/>
+  <updated>2013-12-05T13:07:22-08:00</updated>
+  <id>http://pcreux.github.io/</id>
   <author>
     <name><![CDATA[Philippe Creux]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Jabber-SH — SH console via XMPP/Jabber (GTalk)]]></title>
-    <link href="http://pcreux.com/2009/12/16/jabber-sh-e28094-sh-console-via-xmppjabber-gtalk/"/>
+    <link href="http://pcreux.github.io/2009/12/16/jabber-sh-e28094-sh-console-via-xmppjabber-gtalk/"/>
     <updated>2009-12-16T22:44:01-08:00</updated>
-    <id>http://pcreux.com/2009/12/16/jabber-sh-e28094-sh-console-via-xmppjabber-gtalk</id>
+    <id>http://pcreux.github.io/2009/12/16/jabber-sh-e28094-sh-console-via-xmppjabber-gtalk</id>
     <content type="html"><![CDATA[<p><img src="/images/wp-import/Screenshot-Jabber-SSH.png" alt="Screenshot-Jabber-SH on GTalk" /></p>
 
 <p>I&rsquo;ve just posted the <a href="http://gist.github.com/258561">code of Jabber-SH</a> on GitHub. Jabber-SH is a ruby hack that allows you to administrate a remote computer via a command line through a Jabber client. It’s like SSH via GoogleTalk! :)</p>

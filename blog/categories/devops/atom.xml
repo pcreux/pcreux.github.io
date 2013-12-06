@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: DevOps | Philippe Creux Weblog]]></title>
-  <link href="http://pcreux.com/blog/categories/devops/atom.xml" rel="self"/>
-  <link href="http://pcreux.com/"/>
-  <updated>2013-11-20T16:27:30-08:00</updated>
-  <id>http://pcreux.com/</id>
+  <link href="http://pcreux.github.io/blog/categories/devops/atom.xml" rel="self"/>
+  <link href="http://pcreux.github.io/"/>
+  <updated>2013-12-05T13:07:22-08:00</updated>
+  <id>http://pcreux.github.io/</id>
   <author>
     <name><![CDATA[Philippe Creux]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Disable / Enable Nagios notifications from command line]]></title>
-    <link href="http://pcreux.com/2011/03/18/disable-enable-nagios-notifications-via-command-line-curl/"/>
+    <link href="http://pcreux.github.io/2011/03/18/disable-enable-nagios-notifications-via-command-line-curl/"/>
     <updated>2011-03-18T15:55:30-07:00</updated>
-    <id>http://pcreux.com/2011/03/18/disable-enable-nagios-notifications-via-command-line-curl</id>
+    <id>http://pcreux.github.io/2011/03/18/disable-enable-nagios-notifications-via-command-line-curl</id>
     <content type="html"><![CDATA[<p>Your a lazy devops, you want to deploy your application in one click BUT you don&rsquo;t want Nagios to send alerts while you&rsquo;re deploying. Solution: disable Nagios notifications while deploying.</p>
 
 <p>Disable Nagios Notifications:

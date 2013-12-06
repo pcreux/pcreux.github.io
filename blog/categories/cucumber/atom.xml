@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Cucumber | Philippe Creux Weblog]]></title>
-  <link href="http://pcreux.com/blog/categories/cucumber/atom.xml" rel="self"/>
-  <link href="http://pcreux.com/"/>
-  <updated>2013-11-20T16:27:30-08:00</updated>
-  <id>http://pcreux.com/</id>
+  <link href="http://pcreux.github.io/blog/categories/cucumber/atom.xml" rel="self"/>
+  <link href="http://pcreux.github.io/"/>
+  <updated>2013-12-05T13:07:22-08:00</updated>
+  <id>http://pcreux.github.io/</id>
   <author>
     <name><![CDATA[Philippe Creux]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[(My) Cucumber best practices and tips]]></title>
-    <link href="http://pcreux.com/2010/09/06/my-cucumber-best-practices-and-tips/"/>
+    <link href="http://pcreux.github.io/2010/09/06/my-cucumber-best-practices-and-tips/"/>
     <updated>2010-09-06T21:55:21-07:00</updated>
-    <id>http://pcreux.com/2010/09/06/my-cucumber-best-practices-and-tips</id>
+    <id>http://pcreux.github.io/2010/09/06/my-cucumber-best-practices-and-tips</id>
     <content type="html"><![CDATA[<p>After <a href="http://eggsonbread.com/2010/03/28/my-rspec-best-practices-and-tips/">(My) RSpec best practices and tips</a>, I&rsquo;m happy to share my Cucumber best practices and tips!</p>
 
 <p>This article will help you organize, clarify and reduce the size of your cucumber scenarios.</p>
@@ -121,7 +121,7 @@ Examples:
 <p>A step can take a <a href="http://wiki.github.com/aslakhellesoy/cucumber/multiline-step-arguments">multi-line table as an argument</a>. This is a great way to load up a bunch of data or to test the rendering of lists and tables. For instance:</p>
 
 <p>```cucumber
-  Given I sent &ldquo;$25&rdquo; to &ldquo;<a href="&#109;&#x61;&#x69;&#x6c;&#116;&#111;&#x3a;&#x6d;&#117;&#x6b;&#x6d;&#117;&#x6b;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#99;&#111;&#x6d;">&#x6d;&#x75;&#x6b;&#x6d;&#117;&#107;&#x40;&#101;&#x78;&#x61;&#109;&#x70;&#108;&#x65;&#46;&#x63;&#111;&#109;</a>&rdquo; from my &ldquo;Bank account&rdquo;
+  Given I sent &ldquo;$25&rdquo; to &ldquo;<a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;&#58;&#109;&#117;&#x6b;&#109;&#117;&#x6b;&#64;&#x65;&#x78;&#97;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#99;&#111;&#x6d;">&#109;&#117;&#x6b;&#109;&#117;&#x6b;&#x40;&#x65;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#x63;&#111;&#109;</a>&rdquo; from my &ldquo;Bank account&rdquo;
   Then I should see the following transaction history:</p>
 
 <pre><code>| create     | complete    |

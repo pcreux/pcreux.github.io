@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Rails | Philippe Creux Weblog]]></title>
-  <link href="http://pcreux.com/blog/categories/rails/atom.xml" rel="self"/>
-  <link href="http://pcreux.com/"/>
-  <updated>2013-11-20T16:27:30-08:00</updated>
-  <id>http://pcreux.com/</id>
+  <link href="http://pcreux.github.io/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://pcreux.github.io/"/>
+  <updated>2013-12-05T13:07:22-08:00</updated>
+  <id>http://pcreux.github.io/</id>
   <author>
     <name><![CDATA[Philippe Creux]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[(My) Cucumber best practices and tips]]></title>
-    <link href="http://pcreux.com/2010/09/06/my-cucumber-best-practices-and-tips/"/>
+    <link href="http://pcreux.github.io/2010/09/06/my-cucumber-best-practices-and-tips/"/>
     <updated>2010-09-06T21:55:21-07:00</updated>
-    <id>http://pcreux.com/2010/09/06/my-cucumber-best-practices-and-tips</id>
+    <id>http://pcreux.github.io/2010/09/06/my-cucumber-best-practices-and-tips</id>
     <content type="html"><![CDATA[<p>After <a href="http://eggsonbread.com/2010/03/28/my-rspec-best-practices-and-tips/">(My) RSpec best practices and tips</a>, I&rsquo;m happy to share my Cucumber best practices and tips!</p>
 
 <p>This article will help you organize, clarify and reduce the size of your cucumber scenarios.</p>
@@ -121,7 +121,7 @@ Examples:
 <p>A step can take a <a href="http://wiki.github.com/aslakhellesoy/cucumber/multiline-step-arguments">multi-line table as an argument</a>. This is a great way to load up a bunch of data or to test the rendering of lists and tables. For instance:</p>
 
 <p>```cucumber
-  Given I sent &ldquo;$25&rdquo; to &ldquo;<a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#109;&#x75;&#x6b;&#x6d;&#117;&#107;&#64;&#101;&#x78;&#x61;&#x6d;&#112;&#x6c;&#x65;&#46;&#x63;&#111;&#x6d;">&#x6d;&#117;&#x6b;&#x6d;&#x75;&#107;&#x40;&#101;&#120;&#x61;&#109;&#x70;&#108;&#x65;&#46;&#x63;&#111;&#109;</a>&rdquo; from my &ldquo;Bank account&rdquo;
+  Given I sent &ldquo;$25&rdquo; to &ldquo;<a href="&#109;&#x61;&#105;&#108;&#x74;&#111;&#58;&#109;&#117;&#x6b;&#109;&#117;&#107;&#64;&#101;&#x78;&#97;&#109;&#x70;&#108;&#x65;&#x2e;&#99;&#x6f;&#x6d;">&#x6d;&#117;&#107;&#109;&#117;&#107;&#64;&#101;&#120;&#97;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#x6d;</a>&rdquo; from my &ldquo;Bank account&rdquo;
   Then I should see the following transaction history:</p>
 
 <pre><code>| create     | complete    |
@@ -157,9 +157,9 @@ end
   
   <entry>
     <title type="html"><![CDATA[Get Integrity to play well with Rails 3 and Bundler 1.0]]></title>
-    <link href="http://pcreux.com/2010/08/31/get-integrity-to-play-well-with-rails-3-and-bundler-1-0/"/>
+    <link href="http://pcreux.github.io/2010/08/31/get-integrity-to-play-well-with-rails-3-and-bundler-1-0/"/>
     <updated>2010-08-31T15:01:59-07:00</updated>
-    <id>http://pcreux.com/2010/08/31/get-integrity-to-play-well-with-rails-3-and-bundler-1-0</id>
+    <id>http://pcreux.github.io/2010/08/31/get-integrity-to-play-well-with-rails-3-and-bundler-1-0</id>
     <content type="html"><![CDATA[<p>The latest &ldquo;stable&rdquo; version of Integrity (v22) doesn&rsquo;t play well with Rails 3 (or any other application using bundler 1.0). Basically the Integrity&rsquo;s Gemfile is used in place of the application&rsquo;s Gemfile when running the tests.</p>
 
 <p>With a Rails 3 application you are likely to get:</p>
@@ -194,9 +194,9 @@ end
   
   <entry>
     <title type="html"><![CDATA[Get script/runner back in Rails 3]]></title>
-    <link href="http://pcreux.com/2010/05/19/get-back-scriptrunner-in-rails-3-x/"/>
+    <link href="http://pcreux.github.io/2010/05/19/get-back-scriptrunner-in-rails-3-x/"/>
     <updated>2010-05-19T17:19:01-07:00</updated>
-    <id>http://pcreux.com/2010/05/19/get-back-scriptrunner-in-rails-3-x</id>
+    <id>http://pcreux.github.io/2010/05/19/get-back-scriptrunner-in-rails-3-x</id>
     <content type="html"><![CDATA[<p>EngineYard&rsquo;s chef recipe for DelayedJob requires <code>script/runner</code>. To use this recipe with Rails 3 I&rsquo;ve just made <code>script/runner</code> for Rails 3. Here is the code:</p>
 
 <p>Edit: Fix for rails 3.0</p>
@@ -205,9 +205,9 @@ end
   
   <entry>
     <title type="html"><![CDATA[(My) RSpec best practices and tips]]></title>
-    <link href="http://pcreux.com/2010/03/28/my-rspec-best-practices-and-tips/"/>
+    <link href="http://pcreux.github.io/2010/03/28/my-rspec-best-practices-and-tips/"/>
     <updated>2010-03-28T19:21:07-07:00</updated>
-    <id>http://pcreux.com/2010/03/28/my-rspec-best-practices-and-tips</id>
+    <id>http://pcreux.github.io/2010/03/28/my-rspec-best-practices-and-tips</id>
     <content type="html"><![CDATA[<p>After a year using RSpec, I&rsquo;m happy to share &ldquo;(My) RSpec Best Practices and Tips&rdquo;. Let&rsquo;s make your specs easier to maintain, less verbose, more structured and covering more cases!</p>
 
 <h2>Use shortcuts <em>specify {}</em>, <em>it {}</em> and <em>subject {}</em></h2>
@@ -451,9 +451,9 @@ end
   
   <entry>
     <title type="html"><![CDATA[New rails plugin to find unused translations]]></title>
-    <link href="http://pcreux.com/2009/09/08/new-rails-plugin-to-find-unused-translations/"/>
+    <link href="http://pcreux.github.io/2009/09/08/new-rails-plugin-to-find-unused-translations/"/>
     <updated>2009-09-08T05:35:30-07:00</updated>
-    <id>http://pcreux.com/2009/09/08/new-rails-plugin-to-find-unused-translations</id>
+    <id>http://pcreux.github.io/2009/09/08/new-rails-plugin-to-find-unused-translations</id>
     <content type="html"><![CDATA[<p>A small while ago, I released with <a href="http://twitter.com/lboix">@lboix</a> a simple rails plug-in that displays translations stored in your locale file but not called from your source code. It is called <a href="http://github.com/o2sources/unused_translations/tree/master">unused_translations</a> and it is <a href="http://github.com/o2sources/unused_translations/tree/master">available on GitHub</a>. I hope you&rsquo;ll enjoy it!</p>
 ]]></content>
   </entry>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: acts_as_versioned | Philippe Creux Weblog]]></title>
-  <link href="http://pcreux.com/blog/categories/acts-as-versioned/atom.xml" rel="self"/>
-  <link href="http://pcreux.com/"/>
-  <updated>2013-11-20T16:27:30-08:00</updated>
-  <id>http://pcreux.com/</id>
+  <link href="http://pcreux.github.io/blog/categories/acts-as-versioned/atom.xml" rel="self"/>
+  <link href="http://pcreux.github.io/"/>
+  <updated>2013-12-05T13:07:22-08:00</updated>
+  <id>http://pcreux.github.io/</id>
   <author>
     <name><![CDATA[Philippe Creux]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Make acts_as_versioned create new version on demand]]></title>
-    <link href="http://pcreux.com/2009/07/29/make-acts_as_versioned-create-new-version-on-demand/"/>
+    <link href="http://pcreux.github.io/2009/07/29/make-acts_as_versioned-create-new-version-on-demand/"/>
     <updated>2009-07-29T16:46:00-07:00</updated>
-    <id>http://pcreux.com/2009/07/29/make-acts_as_versioned-create-new-version-on-demand</id>
+    <id>http://pcreux.github.io/2009/07/29/make-acts_as_versioned-create-new-version-on-demand</id>
     <content type="html"><![CDATA[<p>I use <a href="http://github.com/technoweenie/acts_as_versioned/tree/master">acts_as_versioned</a> to manage versions of Rails models. As I don&rsquo;t want to create a new version of my document everytime I save it (to fix a typo for instance), I added a virtual attribute called <code>save_with_revision</code> to my model and put it into the definition of <code>version_condition_met?</code>.</p>
 
 <p>```ruby
@@ -51,9 +51,9 @@ end
   
   <entry>
     <title type="html"><![CDATA[File versioning in Ruby on Rails with Paperclip & acts_as_versioned]]></title>
-    <link href="http://pcreux.com/2009/07/23/file-versioning-in-ruby-on-rails-with-paperclip-acts_as_versioned/"/>
+    <link href="http://pcreux.github.io/2009/07/23/file-versioning-in-ruby-on-rails-with-paperclip-acts_as_versioned/"/>
     <updated>2009-07-23T12:50:11-07:00</updated>
-    <id>http://pcreux.com/2009/07/23/file-versioning-in-ruby-on-rails-with-paperclip-acts_as_versioned</id>
+    <id>http://pcreux.github.io/2009/07/23/file-versioning-in-ruby-on-rails-with-paperclip-acts_as_versioned</id>
     <content type="html"><![CDATA[<p>This short tutorial shows you how to manage file versioning in Ruby on Rails by making <a href="http://thoughtbot.com/projects/paperclip">Paperclip</a> falling in love with <a href="http://github.com/technoweenie/acts_as_versioned/tree/master">acts_as_versioned</a>. Paperclip &amp; acts_as_versioned are plug-ins for Ruby on Rails: Paperclip manages file upload, acts_as_versioned enables models versioning.</p>
 
 <h2>Patch Paperclip</h2>

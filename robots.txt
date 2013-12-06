@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://pcreux.com/sitemap.xml 
+Sitemap: http://pcreux.github.io/sitemap.xml 

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Speed | Philippe Creux Weblog]]></title>
-  <link href="http://pcreux.com/blog/categories/speed/atom.xml" rel="self"/>
-  <link href="http://pcreux.com/"/>
-  <updated>2013-11-20T16:27:30-08:00</updated>
-  <id>http://pcreux.com/</id>
+  <link href="http://pcreux.github.io/blog/categories/speed/atom.xml" rel="self"/>
+  <link href="http://pcreux.github.io/"/>
+  <updated>2013-12-05T13:07:22-08:00</updated>
+  <id>http://pcreux.github.io/</id>
   <author>
     <name><![CDATA[Philippe Creux]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Speed up RSpec with set()]]></title>
-    <link href="http://pcreux.com/2010/05/26/speed-up-your-specs-with-set/"/>
+    <link href="http://pcreux.github.io/2010/05/26/speed-up-your-specs-with-set/"/>
     <updated>2010-05-26T00:33:45-07:00</updated>
-    <id>http://pcreux.com/2010/05/26/speed-up-your-specs-with-set</id>
+    <id>http://pcreux.github.io/2010/05/26/speed-up-your-specs-with-set</id>
     <content type="html"><![CDATA[<p>I enjoy using the <code>let()</code> method as it makes my specs easier to read and maintain than setting up instance variables in <code>before(:each)</code> blocks. The <code>let()</code> method can be used like this:</p>
 
 <p>```ruby

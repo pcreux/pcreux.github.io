@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: UX | Philippe Creux Weblog]]></title>
-  <link href="http://pcreux.com/blog/categories/ux/atom.xml" rel="self"/>
-  <link href="http://pcreux.com/"/>
-  <updated>2013-11-20T16:27:30-08:00</updated>
-  <id>http://pcreux.com/</id>
+  <link href="http://pcreux.github.io/blog/categories/ux/atom.xml" rel="self"/>
+  <link href="http://pcreux.github.io/"/>
+  <updated>2013-12-05T13:07:22-08:00</updated>
+  <id>http://pcreux.github.io/</id>
   <author>
     <name><![CDATA[Philippe Creux]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Top-down and Bottom-up programming illustrated by Mac OS X and Windows]]></title>
-    <link href="http://pcreux.com/2009/11/25/top-down-and-bottom-up-programming-illustrated-by-mac-os-x-and-windows/"/>
+    <link href="http://pcreux.github.io/2009/11/25/top-down-and-bottom-up-programming-illustrated-by-mac-os-x-and-windows/"/>
     <updated>2009-11-25T00:00:49-08:00</updated>
-    <id>http://pcreux.com/2009/11/25/top-down-and-bottom-up-programming-illustrated-by-mac-os-x-and-windows</id>
+    <id>http://pcreux.github.io/2009/11/25/top-down-and-bottom-up-programming-illustrated-by-mac-os-x-and-windows</id>
     <content type="html"><![CDATA[<p><strong>Bottom-up programming</strong> starts by developing the data model before designing the user interface. Windows Start/Programs menu illustrates this approach. Since programs shortcuts are stored in the directory <code>Programs</code> the menu displays the content of this directory.</p>
 
 <p><img src="/images/wp-import/xp-start.png" alt="Windows XP Start menu" /></p>

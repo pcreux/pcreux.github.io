@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: BDD | Philippe Creux Weblog]]></title>
-  <link href="http://pcreux.com/blog/categories/bdd/atom.xml" rel="self"/>
-  <link href="http://pcreux.com/"/>
-  <updated>2013-11-20T16:27:30-08:00</updated>
-  <id>http://pcreux.com/</id>
+  <link href="http://pcreux.github.io/blog/categories/bdd/atom.xml" rel="self"/>
+  <link href="http://pcreux.github.io/"/>
+  <updated>2013-12-05T13:07:22-08:00</updated>
+  <id>http://pcreux.github.io/</id>
   <author>
     <name><![CDATA[Philippe Creux]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Behavior Driven Development in a nutshell]]></title>
-    <link href="http://pcreux.com/2009/07/22/behavior-driven-development-in-a-nutshell/"/>
+    <link href="http://pcreux.github.io/2009/07/22/behavior-driven-development-in-a-nutshell/"/>
     <updated>2009-07-22T16:42:21-07:00</updated>
-    <id>http://pcreux.com/2009/07/22/behavior-driven-development-in-a-nutshell</id>
+    <id>http://pcreux.github.io/2009/07/22/behavior-driven-development-in-a-nutshell</id>
     <content type="html"><![CDATA[<p>A good development practice is to use automated tests to ensure the application works well and to facilitate refactoring. It is even better to write these unit tests before writing the code: this practice is called <a href="http://en.wikipedia.org/wiki/Test-driven_development">Test Driven Development</a> (TDD) and it is a great way to check that the code <em>is</em> what it is excepted to <em>be</em>. <a href="http://en.wikipedia.org/wiki/Behavior_driven_development">Behavior Driven Development</a> (BDD) goes a step further as you write <em>specifications</em> describing what the code <em>does</em>.</p>
 
 <p>Behavior Driven Development is more about interactions with the application than just unit testing. It forces the developer to understand the responsibility of the method he is about to write. Using good tools, the specs written to test the application can be used as specifications.</p>

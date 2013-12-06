@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Agile | Philippe Creux Weblog]]></title>
-  <link href="http://pcreux.com/blog/categories/agile/atom.xml" rel="self"/>
-  <link href="http://pcreux.com/"/>
-  <updated>2013-11-20T16:27:30-08:00</updated>
-  <id>http://pcreux.com/</id>
+  <link href="http://pcreux.github.io/blog/categories/agile/atom.xml" rel="self"/>
+  <link href="http://pcreux.github.io/"/>
+  <updated>2013-12-05T13:07:22-08:00</updated>
+  <id>http://pcreux.github.io/</id>
   <author>
     <name><![CDATA[Philippe Creux]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Behavior Driven Development in a nutshell]]></title>
-    <link href="http://pcreux.com/2009/07/22/behavior-driven-development-in-a-nutshell/"/>
+    <link href="http://pcreux.github.io/2009/07/22/behavior-driven-development-in-a-nutshell/"/>
     <updated>2009-07-22T16:42:21-07:00</updated>
-    <id>http://pcreux.com/2009/07/22/behavior-driven-development-in-a-nutshell</id>
+    <id>http://pcreux.github.io/2009/07/22/behavior-driven-development-in-a-nutshell</id>
     <content type="html"><![CDATA[<p>A good development practice is to use automated tests to ensure the application works well and to facilitate refactoring. It is even better to write these unit tests before writing the code: this practice is called <a href="http://en.wikipedia.org/wiki/Test-driven_development">Test Driven Development</a> (TDD) and it is a great way to check that the code <em>is</em> what it is excepted to <em>be</em>. <a href="http://en.wikipedia.org/wiki/Behavior_driven_development">Behavior Driven Development</a> (BDD) goes a step further as you write <em>specifications</em> describing what the code <em>does</em>.</p>
 
 <p>Behavior Driven Development is more about interactions with the application than just unit testing. It forces the developer to understand the responsibility of the method he is about to write. Using good tools, the specs written to test the application can be used as specifications.</p>
@@ -87,9 +87,9 @@ Then I should see "Message sent!"
   
   <entry>
     <title type="html"><![CDATA[Agile Development in a Nutshell]]></title>
-    <link href="http://pcreux.com/2009/07/10/agile-development-in-a-nutshell/"/>
+    <link href="http://pcreux.github.io/2009/07/10/agile-development-in-a-nutshell/"/>
     <updated>2009-07-10T18:44:57-07:00</updated>
-    <id>http://pcreux.com/2009/07/10/agile-development-in-a-nutshell</id>
+    <id>http://pcreux.github.io/2009/07/10/agile-development-in-a-nutshell</id>
     <content type="html"><![CDATA[<p><img src="/images/wp-import/screenshot1.png" alt="Waterfall project Cartoon - Generated from http://www.projectcartoon.com/" /></p>
 
 <p>Funny isn&rsquo;t it? But that is the way it goes in many companies developing software – especially in big companies and on big projects. This is the old school &ndash; but widely used &ndash; <a href="http://en.wikipedia.org/wiki/Waterfall_model">waterfall model</a>. This software development process goes through the phases of Requirements, Design, Development, Testing &amp; Maintenance one after the other. It relies on the dream that once a step is 100% complete, it is also 100% right and it drives us to the delivery of a working software even the one the customer wants. But it doesn&rsquo;t go that way in the software industry: customers don&rsquo;t know what they need and use to ask many useless features, project leaders don&rsquo;t succeed to write down the perfect requirements, analysts spend ages building up software architectures writing down pages of diagrams &ndash; software is definitely one of the most complex artifact humans can build up &ndash; and developers are human too, so they make mistakes too.</p>
